@@ -1,0 +1,11 @@
+{
+  "name": "sagetv-js-api",
+  "version": "9.1.7",
+  "description": "SageTV JavaScript Apis",
+  "main": "SageTVAPI.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sean Stuckless <bmtsupport@gmail.com>",
+  "license": "ISC"
+}
