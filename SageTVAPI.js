@@ -1,8 +1,8 @@
 class SageTVAPI {
-    constructor(baseUrl, clientId) {
-        this.clientId=clientId;
-        this.baseUrl = (baseUrl)?baseUrl:window.SageTVAPIBaseUrl;
-        this.apiPath = '/sage/api'
+    constructor(options) {
+        this.baseUrl = options.baseUrl;
+        this.apiPath = options.apiPath || '/sagex/api'
+        this.options = options;
     }
 
     /**
@@ -25,11 +25,24 @@ class SageTVAPI {
                 }
             }
         }
-        console.log("Calling: " + cmd, args);
-        console.log("Calling: URL: " + url);
-        return fetch(url).then(function(result) {
+        console.log("Calling: " + cmd, args, url);
+        let headers = new Headers();
+        if (this.options.username) {
+            headers.append('Authorization', 'Basic ' + btoa(this.options.username + ":" + this.options.password));
+        }
+        let reqOpts = {
+            method: 'GET',
+            headers: headers,
+            mode: 'cors',
+            cache: 'none',
+            credentials: 'include'
+        };
+        return fetch(url, reqOpts).then(function(result) {
             console.log("RESPONSE:", result);
-            return result.json();
+            if (result.ok)
+                return result.json();
+            else
+                throw new Error("Request Failed: " + url)
         });
     };
 }

@@ -1,6 +1,6 @@
 {
   "name": "sagetv-js-api",
-  "version": "9.1.7",
+  "version": "9.1.7.1",
   "description": "SageTV JavaScript Apis",
   "main": "SageTVAPI.js",
   "scripts": {
