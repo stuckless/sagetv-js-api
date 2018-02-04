@@ -13,18 +13,14 @@ class SageTVAPI {
      */
     invoke(cmd, args) {
         let url = (this.baseUrl)?(this.baseUrl+this.apiPath):this.apiPath;
-        url += ("/"+cmd);
-        if (Object.keys(args).length) {
-            url += "?";
-            for (var property in args) {
-                if (!url.endsWith("?")) {
-                    url+="&";
-                }
-                if (args.hasOwnProperty(property)) {
-                    url+=(property + "=" + encodeURIComponent(args[property]));
-                }
+        url += ("?c="+cmd);
+        if (args && args.length) {
+            for (var i=0;i<args.length;i++) {
+               url+=("&" + (i+1) + "=" + encodeURIComponent(args[i]));
             }
         }
+        let encoder = this.options.encoder || 'json';
+        url += ("&encoder="+encoder);
         console.log("Calling: " + cmd, args, url);
         let headers = new Headers();
         if (this.options.username) {

@@ -6,90 +6,56 @@ class AiringAPI {
 
     // AddAiring
    AddAiring(ShowExternalID, StationID, StartTime, Duration) {
-  return this.sageAPI.invoke("AddAiring", {
-'ShowExternalID':ShowExternalID
-,
-'StationID':StationID
-,
-'StartTime':StartTime
-,
-'Duration':Duration
+  return this.sageAPI.invoke("AddAiring", [ShowExternalID,StationID,StartTime,Duration]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // AddAiringDetailed
    AddAiringDetailed(ShowExternalID, StationID, StartTime, Duration, PartNumber, TotalParts, ParentalRating, HDTV, Stereo, ClosedCaptioning, SAP, Subtitled, PremierFinale) {
-  return this.sageAPI.invoke("AddAiringDetailed", {
-'ShowExternalID':ShowExternalID
-,
-'StationID':StationID
-,
-'StartTime':StartTime
-,
-'Duration':Duration
-,
-'PartNumber':PartNumber
-,
-'TotalParts':TotalParts
-,
-'ParentalRating':ParentalRating
-,
-'HDTV':HDTV
-,
-'Stereo':Stereo
-,
-'ClosedCaptioning':ClosedCaptioning
-,
-'SAP':SAP
-,
-'Subtitled':Subtitled
-,
-'PremierFinale':PremierFinale
+  return this.sageAPI.invoke("AddAiringDetailed", [ShowExternalID,StationID,StartTime,Duration,PartNumber,TotalParts,ParentalRating,HDTV,Stereo,ClosedCaptioning,SAP,Subtitled,PremierFinale]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // AddAiringDetailed
    AddAiringDetailed(ShowExternalID, StationID, StartTime, Duration, PartNumber, TotalParts, ParentalRating, Attributes, PremierFinale) {
-  return this.sageAPI.invoke("AddAiringDetailed", {
-'ShowExternalID':ShowExternalID
-,
-'StationID':StationID
-,
-'StartTime':StartTime
-,
-'Duration':Duration
-,
-'PartNumber':PartNumber
-,
-'TotalParts':TotalParts
-,
-'ParentalRating':ParentalRating
-,
-'Attributes':Attributes
-,
-'PremierFinale':PremierFinale
+  return this.sageAPI.invoke("AddAiringDetailed", [ShowExternalID,StationID,StartTime,Duration,PartNumber,TotalParts,ParentalRating,Attributes,PremierFinale]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // CancelRecord
    CancelRecord(Airing) {
-  return this.sageAPI.invoke("CancelRecord", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("CancelRecord", [Airing.AiringID]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // ClearDontLike
    ClearDontLike(Airing) {
-  return this.sageAPI.invoke("ClearDontLike", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("ClearDontLike", [Airing.AiringID]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // ClearWatched
    ClearWatched(Airing) {
-  return this.sageAPI.invoke("ClearWatched", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("ClearWatched", [Airing.AiringID]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // GetAiringAttributeList
@@ -97,8 +63,10 @@ class AiringAPI {
   if (typeof Airing.AttributeList !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.AttributeList);
   });
-  return this.sageAPI.invoke("GetAiringAttributeList", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetAiringAttributeList", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.AttributeList=json.Result;
+  return json.Result;
 });
    }
 
@@ -107,8 +75,10 @@ class AiringAPI {
   if (typeof Airing.ChannelName !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.ChannelName);
   });
-  return this.sageAPI.invoke("GetAiringChannelName", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetAiringChannelName", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.ChannelName=json.Result;
+  return json.Result;
 });
    }
 
@@ -117,8 +87,10 @@ class AiringAPI {
   if (typeof Airing.ChannelNumber !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.ChannelNumber);
   });
-  return this.sageAPI.invoke("GetAiringChannelNumber", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetAiringChannelNumber", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.ChannelNumber=json.Result;
+  return json.Result;
 });
    }
 
@@ -127,8 +99,10 @@ class AiringAPI {
   if (typeof Airing.Duration !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.Duration);
   });
-  return this.sageAPI.invoke("GetAiringDuration", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetAiringDuration", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.Duration=json.Result;
+  return json.Result;
 });
    }
 
@@ -137,25 +111,31 @@ class AiringAPI {
   if (typeof Airing.EndTime !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.EndTime);
   });
-  return this.sageAPI.invoke("GetAiringEndTime", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetAiringEndTime", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.EndTime=json.Result;
+  return json.Result;
 });
    }
 
     // GetAiringForID
    GetAiringForID(AiringID) {
-  return this.sageAPI.invoke("GetAiringForID", {
-'AiringID':AiringID
+  return this.sageAPI.invoke("GetAiringForID", [AiringID]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // GetAiringID
    GetAiringID(Airing) {
-  if (typeof Airing.ID !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Airing.ID);
+  if (typeof Airing.AiringID !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Airing.AiringID);
   });
-  return this.sageAPI.invoke("GetAiringID", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetAiringID", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.AiringID=json.Result;
+  return json.Result;
 });
    }
 
@@ -164,8 +144,10 @@ class AiringAPI {
   if (typeof Airing.OnAfter !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.OnAfter);
   });
-  return this.sageAPI.invoke("GetAiringOnAfter", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetAiringOnAfter", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.OnAfter=json.Result;
+  return json.Result;
 });
    }
 
@@ -174,8 +156,10 @@ class AiringAPI {
   if (typeof Airing.OnBefore !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.OnBefore);
   });
-  return this.sageAPI.invoke("GetAiringOnBefore", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetAiringOnBefore", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.OnBefore=json.Result;
+  return json.Result;
 });
    }
 
@@ -184,8 +168,10 @@ class AiringAPI {
   if (typeof Airing.PartNumber !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.PartNumber);
   });
-  return this.sageAPI.invoke("GetAiringPartNumber", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetAiringPartNumber", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.PartNumber=json.Result;
+  return json.Result;
 });
    }
 
@@ -194,8 +180,10 @@ class AiringAPI {
   if (typeof Airing.PremiereFinaleInfo !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.PremiereFinaleInfo);
   });
-  return this.sageAPI.invoke("GetAiringPremiereFinaleInfo", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetAiringPremiereFinaleInfo", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.PremiereFinaleInfo=json.Result;
+  return json.Result;
 });
    }
 
@@ -204,8 +192,10 @@ class AiringAPI {
   if (typeof Airing.Ratings !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.Ratings);
   });
-  return this.sageAPI.invoke("GetAiringRatings", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetAiringRatings", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.Ratings=json.Result;
+  return json.Result;
 });
    }
 
@@ -214,8 +204,10 @@ class AiringAPI {
   if (typeof Airing.StartTime !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.StartTime);
   });
-  return this.sageAPI.invoke("GetAiringStartTime", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetAiringStartTime", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.StartTime=json.Result;
+  return json.Result;
 });
    }
 
@@ -224,8 +216,10 @@ class AiringAPI {
   if (typeof Airing.Title !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.Title);
   });
-  return this.sageAPI.invoke("GetAiringTitle", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetAiringTitle", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.Title=json.Result;
+  return json.Result;
 });
    }
 
@@ -234,8 +228,10 @@ class AiringAPI {
   if (typeof Airing.TotalParts !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.TotalParts);
   });
-  return this.sageAPI.invoke("GetAiringTotalParts", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetAiringTotalParts", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.TotalParts=json.Result;
+  return json.Result;
 });
    }
 
@@ -244,8 +240,10 @@ class AiringAPI {
   if (typeof Airing.Channel !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.Channel);
   });
-  return this.sageAPI.invoke("GetChannel", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetChannel", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.Channel=json.Result;
+  return json.Result;
 });
    }
 
@@ -254,8 +252,10 @@ class AiringAPI {
   if (typeof Airing.ExtraAiringDetails !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.ExtraAiringDetails);
   });
-  return this.sageAPI.invoke("GetExtraAiringDetails", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetExtraAiringDetails", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.ExtraAiringDetails=json.Result;
+  return json.Result;
 });
    }
 
@@ -264,18 +264,20 @@ class AiringAPI {
   if (typeof Airing.LatestWatchedTime !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.LatestWatchedTime);
   });
-  return this.sageAPI.invoke("GetLatestWatchedTime", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetLatestWatchedTime", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.LatestWatchedTime=json.Result;
+  return json.Result;
 });
    }
 
     // GetManualRecordProperty
    GetManualRecordProperty(Airing, PropertyName) {
-  return this.sageAPI.invoke("GetManualRecordProperty", {
-'Airing':Airing.ID
-,
-'PropertyName':PropertyName
+  return this.sageAPI.invoke("GetManualRecordProperty", [Airing.AiringID,PropertyName]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // GetMediaFileForAiring
@@ -283,8 +285,10 @@ class AiringAPI {
   if (typeof Airing.MediaFileForAiring !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.MediaFileForAiring);
   });
-  return this.sageAPI.invoke("GetMediaFileForAiring", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetMediaFileForAiring", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.MediaFileForAiring=json.Result;
+  return json.Result;
 });
    }
 
@@ -293,8 +297,10 @@ class AiringAPI {
   if (typeof Airing.ParentalLimitsExceeded !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.ParentalLimitsExceeded);
   });
-  return this.sageAPI.invoke("GetParentalLimitsExceeded", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetParentalLimitsExceeded", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.ParentalLimitsExceeded=json.Result;
+  return json.Result;
 });
    }
 
@@ -303,8 +309,10 @@ class AiringAPI {
   if (typeof Airing.ParentalRating !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.ParentalRating);
   });
-  return this.sageAPI.invoke("GetParentalRating", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetParentalRating", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.ParentalRating=json.Result;
+  return json.Result;
 });
    }
 
@@ -313,8 +321,10 @@ class AiringAPI {
   if (typeof Airing.PlayableAiring !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.PlayableAiring);
   });
-  return this.sageAPI.invoke("GetPlayableAiring", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetPlayableAiring", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.PlayableAiring=json.Result;
+  return json.Result;
 });
    }
 
@@ -323,8 +333,10 @@ class AiringAPI {
   if (typeof Airing.RealWatchedEndTime !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.RealWatchedEndTime);
   });
-  return this.sageAPI.invoke("GetRealWatchedEndTime", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetRealWatchedEndTime", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.RealWatchedEndTime=json.Result;
+  return json.Result;
 });
    }
 
@@ -333,8 +345,10 @@ class AiringAPI {
   if (typeof Airing.RealWatchedStartTime !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.RealWatchedStartTime);
   });
-  return this.sageAPI.invoke("GetRealWatchedStartTime", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetRealWatchedStartTime", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.RealWatchedStartTime=json.Result;
+  return json.Result;
 });
    }
 
@@ -343,8 +357,10 @@ class AiringAPI {
   if (typeof Airing.RecordingName !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.RecordingName);
   });
-  return this.sageAPI.invoke("GetRecordingName", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetRecordingName", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.RecordingName=json.Result;
+  return json.Result;
 });
    }
 
@@ -353,8 +369,10 @@ class AiringAPI {
   if (typeof Airing.RecordingQuality !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.RecordingQuality);
   });
-  return this.sageAPI.invoke("GetRecordingQuality", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetRecordingQuality", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.RecordingQuality=json.Result;
+  return json.Result;
 });
    }
 
@@ -363,8 +381,10 @@ class AiringAPI {
   if (typeof Airing.ScheduleDuration !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.ScheduleDuration);
   });
-  return this.sageAPI.invoke("GetScheduleDuration", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetScheduleDuration", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.ScheduleDuration=json.Result;
+  return json.Result;
 });
    }
 
@@ -373,8 +393,10 @@ class AiringAPI {
   if (typeof Airing.ScheduleEndTime !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.ScheduleEndTime);
   });
-  return this.sageAPI.invoke("GetScheduleEndTime", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetScheduleEndTime", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.ScheduleEndTime=json.Result;
+  return json.Result;
 });
    }
 
@@ -383,8 +405,10 @@ class AiringAPI {
   if (typeof Airing.ScheduleRecordingRecurrence !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.ScheduleRecordingRecurrence);
   });
-  return this.sageAPI.invoke("GetScheduleRecordingRecurrence", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetScheduleRecordingRecurrence", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.ScheduleRecordingRecurrence=json.Result;
+  return json.Result;
 });
    }
 
@@ -393,8 +417,10 @@ class AiringAPI {
   if (typeof Airing.ScheduleStartTime !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.ScheduleStartTime);
   });
-  return this.sageAPI.invoke("GetScheduleStartTime", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetScheduleStartTime", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.ScheduleStartTime=json.Result;
+  return json.Result;
 });
    }
 
@@ -403,8 +429,10 @@ class AiringAPI {
   if (typeof Airing.Show !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.Show);
   });
-  return this.sageAPI.invoke("GetShow", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetShow", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.Show=json.Result;
+  return json.Result;
 });
    }
 
@@ -413,8 +441,10 @@ class AiringAPI {
   if (typeof Airing.TrackNumber !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.TrackNumber);
   });
-  return this.sageAPI.invoke("GetTrackNumber", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetTrackNumber", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.TrackNumber=json.Result;
+  return json.Result;
 });
    }
 
@@ -423,8 +453,10 @@ class AiringAPI {
   if (typeof Airing.WatchedDuration !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.WatchedDuration);
   });
-  return this.sageAPI.invoke("GetWatchedDuration", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetWatchedDuration", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.WatchedDuration=json.Result;
+  return json.Result;
 });
    }
 
@@ -433,8 +465,10 @@ class AiringAPI {
   if (typeof Airing.WatchedEndTime !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.WatchedEndTime);
   });
-  return this.sageAPI.invoke("GetWatchedEndTime", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetWatchedEndTime", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.WatchedEndTime=json.Result;
+  return json.Result;
 });
    }
 
@@ -443,188 +477,212 @@ class AiringAPI {
   if (typeof Airing.WatchedStartTime !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Airing.WatchedStartTime);
   });
-  return this.sageAPI.invoke("GetWatchedStartTime", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("GetWatchedStartTime", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.WatchedStartTime=json.Result;
+  return json.Result;
 });
    }
 
     // IsAiringAttributeSet
    IsAiringAttributeSet(Airing, Attribute) {
-  return this.sageAPI.invoke("IsAiringAttributeSet", {
-'Airing':Airing.ID
-,
-'Attribute':Attribute
+  return this.sageAPI.invoke("IsAiringAttributeSet", [Airing.AiringID,Attribute]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // IsAiringHDTV
    IsAiringHDTV(Airing) {
-  if (typeof Airing.HDTV !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Airing.HDTV);
+  if (typeof Airing.IsAiringHDTV !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Airing.IsAiringHDTV);
   });
-  return this.sageAPI.invoke("IsAiringHDTV", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("IsAiringHDTV", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.IsAiringHDTV=json.Result;
+  return json.Result;
 });
    }
 
     // IsAiringObject
    IsAiringObject(Airing) {
-  return this.sageAPI.invoke("IsAiringObject", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("IsAiringObject", [Airing.AiringID]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // IsDontLike
    IsDontLike(Airing) {
-  if (typeof Airing.DontLike !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Airing.DontLike);
+  if (typeof Airing.IsDontLike !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Airing.IsDontLike);
   });
-  return this.sageAPI.invoke("IsDontLike", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("IsDontLike", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.IsDontLike=json.Result;
+  return json.Result;
 });
    }
 
     // IsFavorite
    IsFavorite(Airing) {
-  if (typeof Airing.Favorite !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Airing.Favorite);
+  if (typeof Airing.IsFavorite !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Airing.IsFavorite);
   });
-  return this.sageAPI.invoke("IsFavorite", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("IsFavorite", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.IsFavorite=json.Result;
+  return json.Result;
 });
    }
 
     // IsManualRecord
    IsManualRecord(Airing) {
-  if (typeof Airing.ManualRecord !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Airing.ManualRecord);
+  if (typeof Airing.IsManualRecord !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Airing.IsManualRecord);
   });
-  return this.sageAPI.invoke("IsManualRecord", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("IsManualRecord", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.IsManualRecord=json.Result;
+  return json.Result;
 });
    }
 
     // IsNotManualOrFavorite
    IsNotManualOrFavorite(Airing) {
-  if (typeof Airing.NotManualOrFavorite !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Airing.NotManualOrFavorite);
+  if (typeof Airing.IsNotManualOrFavorite !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Airing.IsNotManualOrFavorite);
   });
-  return this.sageAPI.invoke("IsNotManualOrFavorite", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("IsNotManualOrFavorite", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.IsNotManualOrFavorite=json.Result;
+  return json.Result;
 });
    }
 
     // IsWatched
    IsWatched(Airing) {
-  if (typeof Airing.Watched !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Airing.Watched);
+  if (typeof Airing.IsWatched !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Airing.IsWatched);
   });
-  return this.sageAPI.invoke("IsWatched", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("IsWatched", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.IsWatched=json.Result;
+  return json.Result;
 });
    }
 
     // IsWatchedCompletely
    IsWatchedCompletely(Airing) {
-  if (typeof Airing.WatchedCompletely !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Airing.WatchedCompletely);
+  if (typeof Airing.IsWatchedCompletely !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Airing.IsWatchedCompletely);
   });
-  return this.sageAPI.invoke("IsWatchedCompletely", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("IsWatchedCompletely", [Airing.AiringID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Airing.IsWatchedCompletely=json.Result;
+  return json.Result;
 });
    }
 
     // PrintAiringLong
    PrintAiringLong(Airing) {
-  return this.sageAPI.invoke("PrintAiringLong", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("PrintAiringLong", [Airing.AiringID]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // PrintAiringMedium
    PrintAiringMedium(Airing) {
-  return this.sageAPI.invoke("PrintAiringMedium", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("PrintAiringMedium", [Airing.AiringID]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // PrintAiringShort
    PrintAiringShort(Airing) {
-  return this.sageAPI.invoke("PrintAiringShort", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("PrintAiringShort", [Airing.AiringID]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // Record
    Record(Airing) {
-  return this.sageAPI.invoke("Record", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("Record", [Airing.AiringID]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetDontLike
    SetDontLike(Airing) {
-  return this.sageAPI.invoke("SetDontLike", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("SetDontLike", [Airing.AiringID]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetManualRecordProperty
    SetManualRecordProperty(Airing, PropertyName, PropertyValue) {
-  return this.sageAPI.invoke("SetManualRecordProperty", {
-'Airing':Airing.ID
-,
-'PropertyName':PropertyName
-,
-'PropertyValue':PropertyValue
+  return this.sageAPI.invoke("SetManualRecordProperty", [Airing.AiringID,PropertyName,PropertyValue]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetRecordingName
    SetRecordingName(Airing, Name) {
-  return this.sageAPI.invoke("SetRecordingName", {
-'Airing':Airing.ID
-,
-'Name':Name
+  return this.sageAPI.invoke("SetRecordingName", [Airing.AiringID,Name]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetRecordingQuality
    SetRecordingQuality(Airing, Quality) {
-  return this.sageAPI.invoke("SetRecordingQuality", {
-'Airing':Airing.ID
-,
-'Quality':Quality
+  return this.sageAPI.invoke("SetRecordingQuality", [Airing.AiringID,Quality]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetRecordingTimes
    SetRecordingTimes(Airing, StartTime, StopTime) {
-  return this.sageAPI.invoke("SetRecordingTimes", {
-'Airing':Airing.ID
-,
-'StartTime':StartTime
-,
-'StopTime':StopTime
+  return this.sageAPI.invoke("SetRecordingTimes", [Airing.AiringID,StartTime,StopTime]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetWatched
    SetWatched(Airing) {
-  return this.sageAPI.invoke("SetWatched", {
-'Airing':Airing.ID
+  return this.sageAPI.invoke("SetWatched", [Airing.AiringID]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetWatchedTimes
    SetWatchedTimes(Airing, WatchedEndTime, RealStartTime) {
-  return this.sageAPI.invoke("SetWatchedTimes", {
-'Airing':Airing.ID
-,
-'WatchedEndTime':WatchedEndTime
-,
-'RealStartTime':RealStartTime
+  return this.sageAPI.invoke("SetWatchedTimes", [Airing.AiringID,WatchedEndTime,RealStartTime]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 }
 

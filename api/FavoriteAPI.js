@@ -6,62 +6,38 @@ class FavoriteAPI {
 
     // AddFavorite
    AddFavorite(Title, FirstRuns, ReRuns, Category, SubCategory, Person, RoleForPerson, Rated, Year, ParentalRating, Network, ChannelCallSign, Timeslot, Keyword) {
-  return this.sageAPI.invoke("AddFavorite", {
-'Title':Title
-,
-'FirstRuns':FirstRuns
-,
-'ReRuns':ReRuns
-,
-'Category':Category
-,
-'SubCategory':SubCategory
-,
-'Person':Person
-,
-'RoleForPerson':RoleForPerson
-,
-'Rated':Rated
-,
-'Year':Year
-,
-'ParentalRating':ParentalRating
-,
-'Network':Network
-,
-'ChannelCallSign':ChannelCallSign
-,
-'Timeslot':Timeslot
-,
-'Keyword':Keyword
+  return this.sageAPI.invoke("AddFavorite", [Title,FirstRuns,ReRuns,Category,SubCategory,Person,RoleForPerson,Rated,Year,ParentalRating,Network,ChannelCallSign,Timeslot,Keyword]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // ConfirmManualRecordOverFavoritePriority
    ConfirmManualRecordOverFavoritePriority(ManualRecordAiring, FavoriteAiring) {
-  return this.sageAPI.invoke("ConfirmManualRecordOverFavoritePriority", {
-'ManualRecordAiring':ManualRecordAiring
-,
-'FavoriteAiring':FavoriteAiring
+  return this.sageAPI.invoke("ConfirmManualRecordOverFavoritePriority", [ManualRecordAiring,FavoriteAiring]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // CreateFavoritePriority
    CreateFavoritePriority(HigherPriorityFavorite, LowerPriorityFavorite) {
-  return this.sageAPI.invoke("CreateFavoritePriority", {
-'HigherPriorityFavorite':HigherPriorityFavorite
-,
-'LowerPriorityFavorite':LowerPriorityFavorite
+  return this.sageAPI.invoke("CreateFavoritePriority", [HigherPriorityFavorite,LowerPriorityFavorite]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // DoesFavoriteMatchAiring
    DoesFavoriteMatchAiring(Favorite, Airing) {
-  return this.sageAPI.invoke("DoesFavoriteMatchAiring", {
-'Favorite':Favorite.ID
-,
-'Airing':Airing
+  return this.sageAPI.invoke("DoesFavoriteMatchAiring", [Favorite.FavoriteID,Airing]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // GetFavoriteAirings
@@ -69,8 +45,10 @@ class FavoriteAPI {
   if (typeof Favorite.Airings !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.Airings);
   });
-  return this.sageAPI.invoke("GetFavoriteAirings", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetFavoriteAirings", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.Airings=json.Result;
+  return json.Result;
 });
    }
 
@@ -79,8 +57,10 @@ class FavoriteAPI {
   if (typeof Favorite.AutomaticConversionDestination !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.AutomaticConversionDestination);
   });
-  return this.sageAPI.invoke("GetFavoriteAutomaticConversionDestination", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetFavoriteAutomaticConversionDestination", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.AutomaticConversionDestination=json.Result;
+  return json.Result;
 });
    }
 
@@ -89,8 +69,10 @@ class FavoriteAPI {
   if (typeof Favorite.AutomaticConversionFormat !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.AutomaticConversionFormat);
   });
-  return this.sageAPI.invoke("GetFavoriteAutomaticConversionFormat", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetFavoriteAutomaticConversionFormat", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.AutomaticConversionFormat=json.Result;
+  return json.Result;
 });
    }
 
@@ -99,8 +81,10 @@ class FavoriteAPI {
   if (typeof Favorite.Category !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.Category);
   });
-  return this.sageAPI.invoke("GetFavoriteCategory", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetFavoriteCategory", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.Category=json.Result;
+  return json.Result;
 });
    }
 
@@ -109,8 +93,10 @@ class FavoriteAPI {
   if (typeof Favorite.Channel !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.Channel);
   });
-  return this.sageAPI.invoke("GetFavoriteChannel", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetFavoriteChannel", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.Channel=json.Result;
+  return json.Result;
 });
    }
 
@@ -119,32 +105,40 @@ class FavoriteAPI {
   if (typeof Favorite.Description !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.Description);
   });
-  return this.sageAPI.invoke("GetFavoriteDescription", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetFavoriteDescription", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.Description=json.Result;
+  return json.Result;
 });
    }
 
     // GetFavoriteForAiring
    GetFavoriteForAiring(Airing) {
-  return this.sageAPI.invoke("GetFavoriteForAiring", {
-'Airing':Airing
+  return this.sageAPI.invoke("GetFavoriteForAiring", [Airing]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // GetFavoriteForID
    GetFavoriteForID(FavoriteID) {
-  return this.sageAPI.invoke("GetFavoriteForID", {
-'FavoriteID':FavoriteID
+  return this.sageAPI.invoke("GetFavoriteForID", [FavoriteID]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // GetFavoriteID
    GetFavoriteID(Favorite) {
-  if (typeof Favorite.ID !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Favorite.ID);
+  if (typeof Favorite.FavoriteID !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Favorite.FavoriteID);
   });
-  return this.sageAPI.invoke("GetFavoriteID", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetFavoriteID", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.FavoriteID=json.Result;
+  return json.Result;
 });
    }
 
@@ -153,8 +147,10 @@ class FavoriteAPI {
   if (typeof Favorite.Keyword !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.Keyword);
   });
-  return this.sageAPI.invoke("GetFavoriteKeyword", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetFavoriteKeyword", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.Keyword=json.Result;
+  return json.Result;
 });
    }
 
@@ -163,8 +159,10 @@ class FavoriteAPI {
   if (typeof Favorite.Network !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.Network);
   });
-  return this.sageAPI.invoke("GetFavoriteNetwork", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetFavoriteNetwork", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.Network=json.Result;
+  return json.Result;
 });
    }
 
@@ -173,8 +171,10 @@ class FavoriteAPI {
   if (typeof Favorite.ParentalRating !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.ParentalRating);
   });
-  return this.sageAPI.invoke("GetFavoriteParentalRating", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetFavoriteParentalRating", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.ParentalRating=json.Result;
+  return json.Result;
 });
    }
 
@@ -183,8 +183,10 @@ class FavoriteAPI {
   if (typeof Favorite.Person !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.Person);
   });
-  return this.sageAPI.invoke("GetFavoritePerson", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetFavoritePerson", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.Person=json.Result;
+  return json.Result;
 });
    }
 
@@ -193,8 +195,10 @@ class FavoriteAPI {
   if (typeof Favorite.PersonRole !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.PersonRole);
   });
-  return this.sageAPI.invoke("GetFavoritePersonRole", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetFavoritePersonRole", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.PersonRole=json.Result;
+  return json.Result;
 });
    }
 
@@ -203,8 +207,10 @@ class FavoriteAPI {
   if (typeof Favorite.PresentationName !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.PresentationName);
   });
-  return this.sageAPI.invoke("GetFavoritePresentationName", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetFavoritePresentationName", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.PresentationName=json.Result;
+  return json.Result;
 });
    }
 
@@ -213,8 +219,10 @@ class FavoriteAPI {
   if (typeof Favorite.PresentationPrefix !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.PresentationPrefix);
   });
-  return this.sageAPI.invoke("GetFavoritePresentationPrefix", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetFavoritePresentationPrefix", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.PresentationPrefix=json.Result;
+  return json.Result;
 });
    }
 
@@ -223,18 +231,20 @@ class FavoriteAPI {
   if (typeof Favorite.Properties !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.Properties);
   });
-  return this.sageAPI.invoke("GetFavoriteProperties", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetFavoriteProperties", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.Properties=json.Result;
+  return json.Result;
 });
    }
 
     // GetFavoriteProperty
    GetFavoriteProperty(Favorite, PropertyName) {
-  return this.sageAPI.invoke("GetFavoriteProperty", {
-'Favorite':Favorite.ID
-,
-'PropertyName':PropertyName
+  return this.sageAPI.invoke("GetFavoriteProperty", [Favorite.FavoriteID,PropertyName]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // GetFavoriteQuality
@@ -242,8 +252,10 @@ class FavoriteAPI {
   if (typeof Favorite.Quality !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.Quality);
   });
-  return this.sageAPI.invoke("GetFavoriteQuality", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetFavoriteQuality", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.Quality=json.Result;
+  return json.Result;
 });
    }
 
@@ -252,8 +264,10 @@ class FavoriteAPI {
   if (typeof Favorite.Rated !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.Rated);
   });
-  return this.sageAPI.invoke("GetFavoriteRated", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetFavoriteRated", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.Rated=json.Result;
+  return json.Result;
 });
    }
 
@@ -262,8 +276,10 @@ class FavoriteAPI {
   if (typeof Favorite.SubCategory !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.SubCategory);
   });
-  return this.sageAPI.invoke("GetFavoriteSubCategory", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetFavoriteSubCategory", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.SubCategory=json.Result;
+  return json.Result;
 });
    }
 
@@ -272,8 +288,10 @@ class FavoriteAPI {
   if (typeof Favorite.Timeslot !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.Timeslot);
   });
-  return this.sageAPI.invoke("GetFavoriteTimeslot", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetFavoriteTimeslot", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.Timeslot=json.Result;
+  return json.Result;
 });
    }
 
@@ -282,8 +300,10 @@ class FavoriteAPI {
   if (typeof Favorite.Title !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.Title);
   });
-  return this.sageAPI.invoke("GetFavoriteTitle", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetFavoriteTitle", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.Title=json.Result;
+  return json.Result;
 });
    }
 
@@ -292,22 +312,29 @@ class FavoriteAPI {
   if (typeof Favorite.Year !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.Year);
   });
-  return this.sageAPI.invoke("GetFavoriteYear", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetFavoriteYear", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.Year=json.Result;
+  return json.Result;
 });
    }
 
     // GetFavorites
    GetFavorites() {
-  return this.sageAPI.invoke("GetFavorites", {
+  return this.sageAPI.invoke("GetFavorites", []).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // GetFavoritesForAiring
    GetFavoritesForAiring(Airing) {
-  return this.sageAPI.invoke("GetFavoritesForAiring", {
-'Airing':Airing
+  return this.sageAPI.invoke("GetFavoritesForAiring", [Airing]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // GetKeepAtMost
@@ -315,8 +342,10 @@ class FavoriteAPI {
   if (typeof Favorite.KeepAtMost !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.KeepAtMost);
   });
-  return this.sageAPI.invoke("GetKeepAtMost", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetKeepAtMost", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.KeepAtMost=json.Result;
+  return json.Result;
 });
    }
 
@@ -325,8 +354,10 @@ class FavoriteAPI {
   if (typeof Favorite.StartPadding !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.StartPadding);
   });
-  return this.sageAPI.invoke("GetStartPadding", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetStartPadding", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.StartPadding=json.Result;
+  return json.Result;
 });
    }
 
@@ -335,335 +366,323 @@ class FavoriteAPI {
   if (typeof Favorite.StopPadding !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Favorite.StopPadding);
   });
-  return this.sageAPI.invoke("GetStopPadding", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("GetStopPadding", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.StopPadding=json.Result;
+  return json.Result;
 });
    }
 
     // IsAutoDelete
    IsAutoDelete(Favorite) {
-  if (typeof Favorite.AutoDelete !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Favorite.AutoDelete);
+  if (typeof Favorite.IsAutoDelete !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Favorite.IsAutoDelete);
   });
-  return this.sageAPI.invoke("IsAutoDelete", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("IsAutoDelete", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.IsAutoDelete=json.Result;
+  return json.Result;
 });
    }
 
     // IsDeleteAfterAutomaticConversion
    IsDeleteAfterAutomaticConversion(Favorite) {
-  if (typeof Favorite.DeleteAfterAutomaticConversion !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Favorite.DeleteAfterAutomaticConversion);
+  if (typeof Favorite.IsDeleteAfterAutomaticConversion !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Favorite.IsDeleteAfterAutomaticConversion);
   });
-  return this.sageAPI.invoke("IsDeleteAfterAutomaticConversion", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("IsDeleteAfterAutomaticConversion", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.IsDeleteAfterAutomaticConversion=json.Result;
+  return json.Result;
 });
    }
 
     // IsFavoriteEnabled
    IsFavoriteEnabled(Favorite) {
-  if (typeof Favorite.Enabled !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Favorite.Enabled);
+  if (typeof Favorite.IsFavoriteEnabled !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Favorite.IsFavoriteEnabled);
   });
-  return this.sageAPI.invoke("IsFavoriteEnabled", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("IsFavoriteEnabled", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.IsFavoriteEnabled=json.Result;
+  return json.Result;
 });
    }
 
     // IsFavoriteObject
    IsFavoriteObject(Favorite) {
-  return this.sageAPI.invoke("IsFavoriteObject", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("IsFavoriteObject", [Favorite.FavoriteID]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // IsFirstRuns
    IsFirstRuns(Favorite) {
-  if (typeof Favorite.FirstRuns !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Favorite.FirstRuns);
+  if (typeof Favorite.IsFirstRuns !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Favorite.IsFirstRuns);
   });
-  return this.sageAPI.invoke("IsFirstRuns", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("IsFirstRuns", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.IsFirstRuns=json.Result;
+  return json.Result;
 });
    }
 
     // IsFirstRunsAndReRuns
    IsFirstRunsAndReRuns(Favorite) {
-  if (typeof Favorite.FirstRunsAndReRuns !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Favorite.FirstRunsAndReRuns);
+  if (typeof Favorite.IsFirstRunsAndReRuns !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Favorite.IsFirstRunsAndReRuns);
   });
-  return this.sageAPI.invoke("IsFirstRunsAndReRuns", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("IsFirstRunsAndReRuns", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.IsFirstRunsAndReRuns=json.Result;
+  return json.Result;
 });
    }
 
     // IsFirstRunsOnly
    IsFirstRunsOnly(Favorite) {
-  if (typeof Favorite.FirstRunsOnly !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Favorite.FirstRunsOnly);
+  if (typeof Favorite.IsFirstRunsOnly !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Favorite.IsFirstRunsOnly);
   });
-  return this.sageAPI.invoke("IsFirstRunsOnly", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("IsFirstRunsOnly", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.IsFirstRunsOnly=json.Result;
+  return json.Result;
 });
    }
 
     // IsReRuns
    IsReRuns(Favorite) {
-  if (typeof Favorite.ReRuns !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Favorite.ReRuns);
+  if (typeof Favorite.IsReRuns !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Favorite.IsReRuns);
   });
-  return this.sageAPI.invoke("IsReRuns", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("IsReRuns", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.IsReRuns=json.Result;
+  return json.Result;
 });
    }
 
     // IsReRunsOnly
    IsReRunsOnly(Favorite) {
-  if (typeof Favorite.ReRunsOnly !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Favorite.ReRunsOnly);
+  if (typeof Favorite.IsReRunsOnly !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Favorite.IsReRunsOnly);
   });
-  return this.sageAPI.invoke("IsReRunsOnly", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("IsReRunsOnly", [Favorite.FavoriteID]).then((json)=>{
+  if (!json || !json.Result) return null;
+  Favorite.IsReRunsOnly=json.Result;
+  return json.Result;
 });
    }
 
     // RemoveFavorite
    RemoveFavorite(Favorite) {
-  return this.sageAPI.invoke("RemoveFavorite", {
-'Favorite':Favorite.ID
+  return this.sageAPI.invoke("RemoveFavorite", [Favorite.FavoriteID]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetDeleteAfterAutomaticConversion
    SetDeleteAfterAutomaticConversion(Favorite, DeleteAfterAutomaticConversion) {
-  return this.sageAPI.invoke("SetDeleteAfterAutomaticConversion", {
-'Favorite':Favorite.ID
-,
-'DeleteAfterAutomaticConversion':DeleteAfterAutomaticConversion
+  return this.sageAPI.invoke("SetDeleteAfterAutomaticConversion", [Favorite.FavoriteID,DeleteAfterAutomaticConversion]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetDontAutodelete
    SetDontAutodelete(Favorite, DontAutoDelete) {
-  return this.sageAPI.invoke("SetDontAutodelete", {
-'Favorite':Favorite.ID
-,
-'DontAutoDelete':DontAutoDelete
+  return this.sageAPI.invoke("SetDontAutodelete", [Favorite.FavoriteID,DontAutoDelete]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetFavoriteAutomaticConversionDestination
    SetFavoriteAutomaticConversionDestination(Favorite, Folder) {
-  return this.sageAPI.invoke("SetFavoriteAutomaticConversionDestination", {
-'Favorite':Favorite.ID
-,
-'Folder':Folder
+  return this.sageAPI.invoke("SetFavoriteAutomaticConversionDestination", [Favorite.FavoriteID,Folder]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetFavoriteAutomaticConversionFormat
    SetFavoriteAutomaticConversionFormat(Favorite, Format) {
-  return this.sageAPI.invoke("SetFavoriteAutomaticConversionFormat", {
-'Favorite':Favorite.ID
-,
-'Format':Format
+  return this.sageAPI.invoke("SetFavoriteAutomaticConversionFormat", [Favorite.FavoriteID,Format]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetFavoriteCategories
    SetFavoriteCategories(Favorite, Category, SubCategory) {
-  return this.sageAPI.invoke("SetFavoriteCategories", {
-'Favorite':Favorite.ID
-,
-'Category':Category
-,
-'SubCategory':SubCategory
+  return this.sageAPI.invoke("SetFavoriteCategories", [Favorite.FavoriteID,Category,SubCategory]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetFavoriteChannel
    SetFavoriteChannel(Favorite, Channel) {
-  return this.sageAPI.invoke("SetFavoriteChannel", {
-'Favorite':Favorite.ID
-,
-'Channel':Channel
+  return this.sageAPI.invoke("SetFavoriteChannel", [Favorite.FavoriteID,Channel]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetFavoriteEnabled
    SetFavoriteEnabled(Favorite, Enabled) {
-  return this.sageAPI.invoke("SetFavoriteEnabled", {
-'Favorite':Favorite.ID
-,
-'Enabled':Enabled
+  return this.sageAPI.invoke("SetFavoriteEnabled", [Favorite.FavoriteID,Enabled]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetFavoriteKeyword
    SetFavoriteKeyword(Favorite, Keyword) {
-  return this.sageAPI.invoke("SetFavoriteKeyword", {
-'Favorite':Favorite.ID
-,
-'Keyword':Keyword
+  return this.sageAPI.invoke("SetFavoriteKeyword", [Favorite.FavoriteID,Keyword]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetFavoriteNetwork
    SetFavoriteNetwork(Favorite, Network) {
-  return this.sageAPI.invoke("SetFavoriteNetwork", {
-'Favorite':Favorite.ID
-,
-'Network':Network
+  return this.sageAPI.invoke("SetFavoriteNetwork", [Favorite.FavoriteID,Network]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetFavoriteParentalRating
    SetFavoriteParentalRating(Favorite, ParentalRating) {
-  return this.sageAPI.invoke("SetFavoriteParentalRating", {
-'Favorite':Favorite.ID
-,
-'ParentalRating':ParentalRating
+  return this.sageAPI.invoke("SetFavoriteParentalRating", [Favorite.FavoriteID,ParentalRating]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetFavoritePerson
    SetFavoritePerson(Favorite, Person, Role) {
-  return this.sageAPI.invoke("SetFavoritePerson", {
-'Favorite':Favorite.ID
-,
-'Person':Person
-,
-'Role':Role
+  return this.sageAPI.invoke("SetFavoritePerson", [Favorite.FavoriteID,Person,Role]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetFavoriteProperty
    SetFavoriteProperty(Favorite, PropertyName, PropertyValue) {
-  return this.sageAPI.invoke("SetFavoriteProperty", {
-'Favorite':Favorite.ID
-,
-'PropertyName':PropertyName
-,
-'PropertyValue':PropertyValue
+  return this.sageAPI.invoke("SetFavoriteProperty", [Favorite.FavoriteID,PropertyName,PropertyValue]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetFavoriteQuality
    SetFavoriteQuality(Favorite, Quality) {
-  return this.sageAPI.invoke("SetFavoriteQuality", {
-'Favorite':Favorite.ID
-,
-'Quality':Quality
+  return this.sageAPI.invoke("SetFavoriteQuality", [Favorite.FavoriteID,Quality]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetFavoriteRated
    SetFavoriteRated(Favorite, Rated) {
-  return this.sageAPI.invoke("SetFavoriteRated", {
-'Favorite':Favorite.ID
-,
-'Rated':Rated
+  return this.sageAPI.invoke("SetFavoriteRated", [Favorite.FavoriteID,Rated]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetFavoriteTimeslot
    SetFavoriteTimeslot(Favorite, Timeslot) {
-  return this.sageAPI.invoke("SetFavoriteTimeslot", {
-'Favorite':Favorite.ID
-,
-'Timeslot':Timeslot
+  return this.sageAPI.invoke("SetFavoriteTimeslot", [Favorite.FavoriteID,Timeslot]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetFavoriteTitle
    SetFavoriteTitle(Favorite, Title) {
-  return this.sageAPI.invoke("SetFavoriteTitle", {
-'Favorite':Favorite.ID
-,
-'Title':Title
+  return this.sageAPI.invoke("SetFavoriteTitle", [Favorite.FavoriteID,Title]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetFavoriteYear
    SetFavoriteYear(Favorite, Year) {
-  return this.sageAPI.invoke("SetFavoriteYear", {
-'Favorite':Favorite.ID
-,
-'Year':Year
+  return this.sageAPI.invoke("SetFavoriteYear", [Favorite.FavoriteID,Year]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetKeepAtMost
    SetKeepAtMost(Favorite, NumberToKeep) {
-  return this.sageAPI.invoke("SetKeepAtMost", {
-'Favorite':Favorite.ID
-,
-'NumberToKeep':NumberToKeep
+  return this.sageAPI.invoke("SetKeepAtMost", [Favorite.FavoriteID,NumberToKeep]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetRunStatus
    SetRunStatus(Favorite, FirstRuns, ReRuns) {
-  return this.sageAPI.invoke("SetRunStatus", {
-'Favorite':Favorite.ID
-,
-'FirstRuns':FirstRuns
-,
-'ReRuns':ReRuns
+  return this.sageAPI.invoke("SetRunStatus", [Favorite.FavoriteID,FirstRuns,ReRuns]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetStartPadding
    SetStartPadding(Favorite, StartPadding) {
-  return this.sageAPI.invoke("SetStartPadding", {
-'Favorite':Favorite.ID
-,
-'StartPadding':StartPadding
+  return this.sageAPI.invoke("SetStartPadding", [Favorite.FavoriteID,StartPadding]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // SetStopPadding
    SetStopPadding(Favorite, StopPadding) {
-  return this.sageAPI.invoke("SetStopPadding", {
-'Favorite':Favorite.ID
-,
-'StopPadding':StopPadding
+  return this.sageAPI.invoke("SetStopPadding", [Favorite.FavoriteID,StopPadding]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // UpdateFavorite
    UpdateFavorite(Favorite, Title, FirstRuns, ReRuns, Category, SubCategory, Person, RoleForPerson, Rated, Year, ParentalRating, Network, ChannelCallSign, Timeslot, Keyword) {
-  return this.sageAPI.invoke("UpdateFavorite", {
-'Favorite':Favorite.ID
-,
-'Title':Title
-,
-'FirstRuns':FirstRuns
-,
-'ReRuns':ReRuns
-,
-'Category':Category
-,
-'SubCategory':SubCategory
-,
-'Person':Person
-,
-'RoleForPerson':RoleForPerson
-,
-'Rated':Rated
-,
-'Year':Year
-,
-'ParentalRating':ParentalRating
-,
-'Network':Network
-,
-'ChannelCallSign':ChannelCallSign
-,
-'Timeslot':Timeslot
-,
-'Keyword':Keyword
+  return this.sageAPI.invoke("UpdateFavorite", [Favorite.FavoriteID,Title,FirstRuns,ReRuns,Category,SubCategory,Person,RoleForPerson,Rated,Year,ParentalRating,Network,ChannelCallSign,Timeslot,Keyword]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 }
 
