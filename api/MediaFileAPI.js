@@ -177,24 +177,24 @@ class MediaFileAPI {
 
     // GetMediaFileAiring
    GetMediaFileAiring(MediaFile) {
-  if (typeof MediaFile.Airing !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(MediaFile.Airing);
+  if (typeof MediaFile.MediaFileAiring !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(MediaFile.MediaFileAiring);
   });
   return this.sageAPI.invoke("GetMediaFileAiring", [MediaFile.MediaFileID]).then((json)=>{
   if (!json || !json.Result) return null;
-  MediaFile.Airing=json.Result;
+  MediaFile.MediaFileAiring=json.Result;
   return json.Result;
 });
    }
 
     // GetMediaFileEncoding
    GetMediaFileEncoding(MediaFile) {
-  if (typeof MediaFile.Encoding !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(MediaFile.Encoding);
+  if (typeof MediaFile.MediaFileEncoding !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(MediaFile.MediaFileEncoding);
   });
   return this.sageAPI.invoke("GetMediaFileEncoding", [MediaFile.MediaFileID]).then((json)=>{
   if (!json || !json.Result) return null;
-  MediaFile.Encoding=json.Result;
+  MediaFile.MediaFileEncoding=json.Result;
   return json.Result;
 });
    }
@@ -219,12 +219,12 @@ class MediaFileAPI {
 
     // GetMediaFileFormatDescription
    GetMediaFileFormatDescription(MediaFile) {
-  if (typeof MediaFile.FormatDescription !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(MediaFile.FormatDescription);
+  if (typeof MediaFile.MediaFileFormatDescription !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(MediaFile.MediaFileFormatDescription);
   });
   return this.sageAPI.invoke("GetMediaFileFormatDescription", [MediaFile.MediaFileID]).then((json)=>{
   if (!json || !json.Result) return null;
-  MediaFile.FormatDescription=json.Result;
+  MediaFile.MediaFileFormatDescription=json.Result;
   return json.Result;
 });
    }
@@ -252,24 +252,24 @@ class MediaFileAPI {
 
     // GetMediaFileMetadataProperties
    GetMediaFileMetadataProperties(MediaFile) {
-  if (typeof MediaFile.MetadataProperties !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(MediaFile.MetadataProperties);
+  if (typeof MediaFile.MediaFileMetadataProperties !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(MediaFile.MediaFileMetadataProperties);
   });
   return this.sageAPI.invoke("GetMediaFileMetadataProperties", [MediaFile.MediaFileID]).then((json)=>{
   if (!json || !json.Result) return null;
-  MediaFile.MetadataProperties=json.Result;
+  MediaFile.MediaFileMetadataProperties=json.Result;
   return json.Result;
 });
    }
 
     // GetMediaFileRelativePath
    GetMediaFileRelativePath(MediaFile) {
-  if (typeof MediaFile.RelativePath !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(MediaFile.RelativePath);
+  if (typeof MediaFile.MediaFileRelativePath !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(MediaFile.MediaFileRelativePath);
   });
   return this.sageAPI.invoke("GetMediaFileRelativePath", [MediaFile.MediaFileID]).then((json)=>{
   if (!json || !json.Result) return null;
-  MediaFile.RelativePath=json.Result;
+  MediaFile.MediaFileRelativePath=json.Result;
   return json.Result;
 });
    }
@@ -626,4 +626,37 @@ class MediaFileAPI {
    }
 }
 
+MediaFileAPI.CanAutorotatePictureFile="CanAutorotatePictureFile";
+MediaFileAPI.AlbumForFile="AlbumForFile";
+MediaFileAPI.FileDuration="FileDuration";
+MediaFileAPI.FileEndTime="FileEndTime";
+MediaFileAPI.FileStartTime="FileStartTime";
+MediaFileAPI.FullImage="FullImage";
+MediaFileAPI.MediaFileAiring="MediaFileAiring";
+MediaFileAPI.MediaFileEncoding="MediaFileEncoding";
+MediaFileAPI.MediaFileFormatDescription="MediaFileFormatDescription";
+MediaFileAPI.MediaFileID="MediaFileID";
+MediaFileAPI.MediaFileMetadataProperties="MediaFileMetadataProperties";
+MediaFileAPI.MediaFileRelativePath="MediaFileRelativePath";
+MediaFileAPI.MediaTitle="MediaTitle";
+MediaFileAPI.NumberOfSegments="NumberOfSegments";
+MediaFileAPI.ParentDirectory="ParentDirectory";
+MediaFileAPI.SegmentFiles="SegmentFiles";
+MediaFileAPI.Size="Size";
+MediaFileAPI.StartTimesForSegments="StartTimesForSegments";
+MediaFileAPI.Thumbnail="Thumbnail";
+MediaFileAPI.HasAnyThumbnail="HasAnyThumbnail";
+MediaFileAPI.HasSpecificThumbnail="HasSpecificThumbnail";
+MediaFileAPI.IsBluRay="IsBluRay";
+MediaFileAPI.IsCompleteRecording="IsCompleteRecording";
+MediaFileAPI.IsDVD="IsDVD";
+MediaFileAPI.IsDVDDrive="IsDVDDrive";
+MediaFileAPI.IsFileCurrentlyRecording="IsFileCurrentlyRecording";
+MediaFileAPI.IsLibraryFile="IsLibraryFile";
+MediaFileAPI.IsLocalFile="IsLocalFile";
+MediaFileAPI.IsMusicFile="IsMusicFile";
+MediaFileAPI.IsPictureFile="IsPictureFile";
+MediaFileAPI.IsTVFile="IsTVFile";
+MediaFileAPI.IsThumbnailLoaded="IsThumbnailLoaded";
+MediaFileAPI.IsVideoFile="IsVideoFile";
     export default MediaFileAPI;

@@ -273,24 +273,24 @@ class ShowAPI {
 
     // GetShowCategoriesList
    GetShowCategoriesList(Show) {
-  if (typeof Show.CategoriesList !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Show.CategoriesList);
+  if (typeof Show.ShowCategoriesList !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Show.ShowCategoriesList);
   });
   return this.sageAPI.invoke("GetShowCategoriesList", [Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Show.CategoriesList=json.Result;
+  Show.ShowCategoriesList=json.Result;
   return json.Result;
 });
    }
 
     // GetShowCategoriesString
    GetShowCategoriesString(Show) {
-  if (typeof Show.CategoriesString !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Show.CategoriesString);
+  if (typeof Show.ShowCategoriesString !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Show.ShowCategoriesString);
   });
   return this.sageAPI.invoke("GetShowCategoriesString", [Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Show.CategoriesString=json.Result;
+  Show.ShowCategoriesString=json.Result;
   return json.Result;
 });
    }
@@ -306,72 +306,72 @@ class ShowAPI {
 
     // GetShowCategory
    GetShowCategory(Show) {
-  if (typeof Show.Category !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Show.Category);
+  if (typeof Show.ShowCategory !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Show.ShowCategory);
   });
   return this.sageAPI.invoke("GetShowCategory", [Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Show.Category=json.Result;
+  Show.ShowCategory=json.Result;
   return json.Result;
 });
    }
 
     // GetShowDescription
    GetShowDescription(Show) {
-  if (typeof Show.Description !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Show.Description);
+  if (typeof Show.ShowDescription !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Show.ShowDescription);
   });
   return this.sageAPI.invoke("GetShowDescription", [Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Show.Description=json.Result;
+  Show.ShowDescription=json.Result;
   return json.Result;
 });
    }
 
     // GetShowDuration
    GetShowDuration(Show) {
-  if (typeof Show.Duration !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Show.Duration);
+  if (typeof Show.ShowDuration !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Show.ShowDuration);
   });
   return this.sageAPI.invoke("GetShowDuration", [Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Show.Duration=json.Result;
+  Show.ShowDuration=json.Result;
   return json.Result;
 });
    }
 
     // GetShowEpisode
    GetShowEpisode(Show) {
-  if (typeof Show.Episode !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Show.Episode);
+  if (typeof Show.ShowEpisode !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Show.ShowEpisode);
   });
   return this.sageAPI.invoke("GetShowEpisode", [Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Show.Episode=json.Result;
+  Show.ShowEpisode=json.Result;
   return json.Result;
 });
    }
 
     // GetShowEpisodeNumber
    GetShowEpisodeNumber(Show) {
-  if (typeof Show.EpisodeNumber !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Show.EpisodeNumber);
+  if (typeof Show.ShowEpisodeNumber !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Show.ShowEpisodeNumber);
   });
   return this.sageAPI.invoke("GetShowEpisodeNumber", [Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Show.EpisodeNumber=json.Result;
+  Show.ShowEpisodeNumber=json.Result;
   return json.Result;
 });
    }
 
     // GetShowExpandedRatings
    GetShowExpandedRatings(Show) {
-  if (typeof Show.ExpandedRatings !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Show.ExpandedRatings);
+  if (typeof Show.ShowExpandedRatings !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Show.ShowExpandedRatings);
   });
   return this.sageAPI.invoke("GetShowExpandedRatings", [Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Show.ExpandedRatings=json.Result;
+  Show.ShowExpandedRatings=json.Result;
   return json.Result;
 });
    }
@@ -417,108 +417,108 @@ class ShowAPI {
 
     // GetShowLanguage
    GetShowLanguage(Show) {
-  if (typeof Show.Language !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Show.Language);
+  if (typeof Show.ShowLanguage !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Show.ShowLanguage);
   });
   return this.sageAPI.invoke("GetShowLanguage", [Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Show.Language=json.Result;
+  Show.ShowLanguage=json.Result;
   return json.Result;
 });
    }
 
     // GetShowMisc
    GetShowMisc(Show) {
-  if (typeof Show.Misc !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Show.Misc);
+  if (typeof Show.ShowMisc !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Show.ShowMisc);
   });
   return this.sageAPI.invoke("GetShowMisc", [Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Show.Misc=json.Result;
+  Show.ShowMisc=json.Result;
   return json.Result;
 });
    }
 
     // GetShowParentalRating
    GetShowParentalRating(Show) {
-  if (typeof Show.ParentalRating !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Show.ParentalRating);
+  if (typeof Show.ShowParentalRating !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Show.ShowParentalRating);
   });
   return this.sageAPI.invoke("GetShowParentalRating", [Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Show.ParentalRating=json.Result;
+  Show.ShowParentalRating=json.Result;
   return json.Result;
 });
    }
 
     // GetShowRated
    GetShowRated(Show) {
-  if (typeof Show.Rated !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Show.Rated);
+  if (typeof Show.ShowRated !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Show.ShowRated);
   });
   return this.sageAPI.invoke("GetShowRated", [Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Show.Rated=json.Result;
+  Show.ShowRated=json.Result;
   return json.Result;
 });
    }
 
     // GetShowSeasonNumber
    GetShowSeasonNumber(Show) {
-  if (typeof Show.SeasonNumber !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Show.SeasonNumber);
+  if (typeof Show.ShowSeasonNumber !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Show.ShowSeasonNumber);
   });
   return this.sageAPI.invoke("GetShowSeasonNumber", [Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Show.SeasonNumber=json.Result;
+  Show.ShowSeasonNumber=json.Result;
   return json.Result;
 });
    }
 
     // GetShowSeriesInfo
    GetShowSeriesInfo(Show) {
-  if (typeof Show.SeriesInfo !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Show.SeriesInfo);
+  if (typeof Show.ShowSeriesInfo !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Show.ShowSeriesInfo);
   });
   return this.sageAPI.invoke("GetShowSeriesInfo", [Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Show.SeriesInfo=json.Result;
+  Show.ShowSeriesInfo=json.Result;
   return json.Result;
 });
    }
 
     // GetShowSubCategory
    GetShowSubCategory(Show) {
-  if (typeof Show.SubCategory !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Show.SubCategory);
+  if (typeof Show.ShowSubCategory !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Show.ShowSubCategory);
   });
   return this.sageAPI.invoke("GetShowSubCategory", [Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Show.SubCategory=json.Result;
+  Show.ShowSubCategory=json.Result;
   return json.Result;
 });
    }
 
     // GetShowTitle
    GetShowTitle(Show) {
-  if (typeof Show.Title !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Show.Title);
+  if (typeof Show.ShowTitle !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Show.ShowTitle);
   });
   return this.sageAPI.invoke("GetShowTitle", [Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Show.Title=json.Result;
+  Show.ShowTitle=json.Result;
   return json.Result;
 });
    }
 
     // GetShowYear
    GetShowYear(Show) {
-  if (typeof Show.Year !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Show.Year);
+  if (typeof Show.ShowYear !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Show.ShowYear);
   });
   return this.sageAPI.invoke("GetShowYear", [Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Show.Year=json.Result;
+  Show.ShowYear=json.Result;
   return json.Result;
 });
    }
@@ -596,4 +596,33 @@ class ShowAPI {
    }
 }
 
+ShowAPI.MovieImageCount="MovieImageCount";
+ShowAPI.MovieStarRating="MovieStarRating";
+ShowAPI.OriginalAiringDate="OriginalAiringDate";
+ShowAPI.PeopleAndCharacterListInShow="PeopleAndCharacterListInShow";
+ShowAPI.PeopleInShow="PeopleInShow";
+ShowAPI.PeopleListInShow="PeopleListInShow";
+ShowAPI.PersonListInShow="PersonListInShow";
+ShowAPI.RolesInShow="RolesInShow";
+ShowAPI.ShowCategoriesList="ShowCategoriesList";
+ShowAPI.ShowCategoriesString="ShowCategoriesString";
+ShowAPI.ShowCategory="ShowCategory";
+ShowAPI.ShowDescription="ShowDescription";
+ShowAPI.ShowDuration="ShowDuration";
+ShowAPI.ShowEpisode="ShowEpisode";
+ShowAPI.ShowEpisodeNumber="ShowEpisodeNumber";
+ShowAPI.ShowExpandedRatings="ShowExpandedRatings";
+ShowAPI.ShowExternalID="ShowExternalID";
+ShowAPI.ShowLanguage="ShowLanguage";
+ShowAPI.ShowMisc="ShowMisc";
+ShowAPI.ShowParentalRating="ShowParentalRating";
+ShowAPI.ShowRated="ShowRated";
+ShowAPI.ShowSeasonNumber="ShowSeasonNumber";
+ShowAPI.ShowSeriesInfo="ShowSeriesInfo";
+ShowAPI.ShowSubCategory="ShowSubCategory";
+ShowAPI.ShowTitle="ShowTitle";
+ShowAPI.ShowYear="ShowYear";
+ShowAPI.HasMovieImage="HasMovieImage";
+ShowAPI.IsMovie="IsMovie";
+ShowAPI.IsShowEPGDataUnique="IsShowEPGDataUnique";
     export default ShowAPI;

@@ -81,14 +81,11 @@ class MediaNodeAPI {
 
     // GetNodeChildren
    GetNodeChildren(MediaNode) {
-  if (typeof MediaNode.NodeChildren !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(MediaNode.NodeChildren);
-  });
   return this.sageAPI.invoke("GetNodeChildren", [MediaNode.MediaNodeID]).then((json)=>{
-  if (!json || !json.Result) return null;
-  MediaNode.NodeChildren=json.Result;
-  return json.Result;
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // GetNodeDataObject
@@ -174,14 +171,11 @@ class MediaNodeAPI {
 
     // GetNodeParent
    GetNodeParent(MediaNode) {
-  if (typeof MediaNode.NodeParent !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(MediaNode.NodeParent);
-  });
   return this.sageAPI.invoke("GetNodeParent", [MediaNode.MediaNodeID]).then((json)=>{
-  if (!json || !json.Result) return null;
-  MediaNode.NodeParent=json.Result;
-  return json.Result;
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // GetNodePrimaryLabel
@@ -386,4 +380,21 @@ class MediaNodeAPI {
    }
 }
 
+MediaNodeAPI.AllNodeDescendants="AllNodeDescendants";
+MediaNodeAPI.NodeDataObject="NodeDataObject";
+MediaNodeAPI.NodeDataType="NodeDataType";
+MediaNodeAPI.NodeFullPath="NodeFullPath";
+MediaNodeAPI.NodeIcon="NodeIcon";
+MediaNodeAPI.NodeNumChildren="NodeNumChildren";
+MediaNodeAPI.NodeNumFilters="NodeNumFilters";
+MediaNodeAPI.NodePrimaryLabel="NodePrimaryLabel";
+MediaNodeAPI.NodeSecondaryLabel="NodeSecondaryLabel";
+MediaNodeAPI.NodeSortTechnique="NodeSortTechnique";
+MediaNodeAPI.NodeThumbnail="NodeThumbnail";
+MediaNodeAPI.NodeTypePath="NodeTypePath";
+MediaNodeAPI.IsNodeFolder="IsNodeFolder";
+MediaNodeAPI.IsNodeHierarchyRealized="IsNodeHierarchyRealized";
+MediaNodeAPI.IsNodePlayable="IsNodePlayable";
+MediaNodeAPI.IsNodeSortAscending="IsNodeSortAscending";
+MediaNodeAPI.IsNodeVirtual="IsNodeVirtual";
     export default MediaNodeAPI;

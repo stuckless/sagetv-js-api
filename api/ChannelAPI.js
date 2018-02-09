@@ -42,12 +42,12 @@ class ChannelAPI {
 
     // GetChannelDescription
    GetChannelDescription(Channel) {
-  if (typeof Channel.Description !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Channel.Description);
+  if (typeof Channel.ChannelDescription !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Channel.ChannelDescription);
   });
   return this.sageAPI.invoke("GetChannelDescription", [Channel.ChannelID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Channel.Description=json.Result;
+  Channel.ChannelDescription=json.Result;
   return json.Result;
 });
    }
@@ -63,12 +63,12 @@ class ChannelAPI {
 
     // GetChannelLogo
    GetChannelLogo(Channel) {
-  if (typeof Channel.Logo !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Channel.Logo);
+  if (typeof Channel.ChannelLogo !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Channel.ChannelLogo);
   });
   return this.sageAPI.invoke("GetChannelLogo", [Channel.ChannelID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Channel.Logo=json.Result;
+  Channel.ChannelLogo=json.Result;
   return json.Result;
 });
    }
@@ -84,24 +84,24 @@ class ChannelAPI {
 
     // GetChannelLogoCount
    GetChannelLogoCount(Channel) {
-  if (typeof Channel.LogoCount !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Channel.LogoCount);
+  if (typeof Channel.ChannelLogoCount !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Channel.ChannelLogoCount);
   });
   return this.sageAPI.invoke("GetChannelLogoCount", [Channel.ChannelID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Channel.LogoCount=json.Result;
+  Channel.ChannelLogoCount=json.Result;
   return json.Result;
 });
    }
 
     // GetChannelLogoURL
    GetChannelLogoURL(Channel) {
-  if (typeof Channel.LogoURL !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Channel.LogoURL);
+  if (typeof Channel.ChannelLogoURL !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Channel.ChannelLogoURL);
   });
   return this.sageAPI.invoke("GetChannelLogoURL", [Channel.ChannelID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Channel.LogoURL=json.Result;
+  Channel.ChannelLogoURL=json.Result;
   return json.Result;
 });
    }
@@ -117,36 +117,36 @@ class ChannelAPI {
 
     // GetChannelName
    GetChannelName(Channel) {
-  if (typeof Channel.Name !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Channel.Name);
+  if (typeof Channel.ChannelName !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Channel.ChannelName);
   });
   return this.sageAPI.invoke("GetChannelName", [Channel.ChannelID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Channel.Name=json.Result;
+  Channel.ChannelName=json.Result;
   return json.Result;
 });
    }
 
     // GetChannelNetwork
    GetChannelNetwork(Channel) {
-  if (typeof Channel.Network !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Channel.Network);
+  if (typeof Channel.ChannelNetwork !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Channel.ChannelNetwork);
   });
   return this.sageAPI.invoke("GetChannelNetwork", [Channel.ChannelID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Channel.Network=json.Result;
+  Channel.ChannelNetwork=json.Result;
   return json.Result;
 });
    }
 
     // GetChannelNumber
    GetChannelNumber(Channel) {
-  if (typeof Channel.Number !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Channel.Number);
+  if (typeof Channel.ChannelNumber !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Channel.ChannelNumber);
   });
   return this.sageAPI.invoke("GetChannelNumber", [Channel.ChannelID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Channel.Number=json.Result;
+  Channel.ChannelNumber=json.Result;
   return json.Result;
 });
    }
@@ -293,4 +293,13 @@ class ChannelAPI {
    }
 }
 
+ChannelAPI.ChannelDescription="ChannelDescription";
+ChannelAPI.ChannelLogo="ChannelLogo";
+ChannelAPI.ChannelLogoCount="ChannelLogoCount";
+ChannelAPI.ChannelLogoURL="ChannelLogoURL";
+ChannelAPI.ChannelName="ChannelName";
+ChannelAPI.ChannelNetwork="ChannelNetwork";
+ChannelAPI.ChannelNumber="ChannelNumber";
+ChannelAPI.StationID="StationID";
+ChannelAPI.IsChannelViewable="IsChannelViewable";
     export default ChannelAPI;

@@ -6,36 +6,36 @@ class PersonAPI {
 
     // GetPersonBirthplace
    GetPersonBirthplace(Person) {
-  if (typeof Person.Birthplace !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Person.Birthplace);
+  if (typeof Person.PersonBirthplace !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Person.PersonBirthplace);
   });
   return this.sageAPI.invoke("GetPersonBirthplace", [Person.PersonID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Person.Birthplace=json.Result;
+  Person.PersonBirthplace=json.Result;
   return json.Result;
 });
    }
 
     // GetPersonDateOfBirth
    GetPersonDateOfBirth(Person) {
-  if (typeof Person.DateOfBirth !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Person.DateOfBirth);
+  if (typeof Person.PersonDateOfBirth !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Person.PersonDateOfBirth);
   });
   return this.sageAPI.invoke("GetPersonDateOfBirth", [Person.PersonID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Person.DateOfBirth=json.Result;
+  Person.PersonDateOfBirth=json.Result;
   return json.Result;
 });
    }
 
     // GetPersonDateOfDeath
    GetPersonDateOfDeath(Person) {
-  if (typeof Person.DateOfDeath !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Person.DateOfDeath);
+  if (typeof Person.PersonDateOfDeath !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Person.PersonDateOfDeath);
   });
   return this.sageAPI.invoke("GetPersonDateOfDeath", [Person.PersonID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Person.DateOfDeath=json.Result;
+  Person.PersonDateOfDeath=json.Result;
   return json.Result;
 });
    }
@@ -101,4 +101,9 @@ class PersonAPI {
    }
 }
 
+PersonAPI.PersonBirthplace="PersonBirthplace";
+PersonAPI.PersonDateOfBirth="PersonDateOfBirth";
+PersonAPI.PersonDateOfDeath="PersonDateOfDeath";
+PersonAPI.PersonID="PersonID";
+PersonAPI.HasPersonImage="HasPersonImage";
     export default PersonAPI;

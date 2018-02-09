@@ -517,6 +517,33 @@ class Utility {
 
    }
 
+    // GetWindowsRegistryDWORDValue
+   GetWindowsRegistryDWORDValue(Root, Key, Name) {
+  return this.sageAPI.invoke("GetWindowsRegistryDWORDValue", [Root,Key,Name]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
+});
+
+   }
+
+    // GetWindowsRegistryNames
+   GetWindowsRegistryNames(Root, Key) {
+  return this.sageAPI.invoke("GetWindowsRegistryNames", [Root,Key]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
+});
+
+   }
+
+    // GetWindowsRegistryStringValue
+   GetWindowsRegistryStringValue(Root, Key, Name) {
+  return this.sageAPI.invoke("GetWindowsRegistryStringValue", [Root,Key,Name]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
+});
+
+   }
+
     // GetWorkingDirectory
    GetWorkingDirectory() {
   return this.sageAPI.invoke("GetWorkingDirectory", []).then((json)=>{
@@ -742,6 +769,15 @@ class Utility {
 
    }
 
+    // PlaySound
+   PlaySound(SoundFile) {
+  return this.sageAPI.invoke("PlaySound", [SoundFile]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
+});
+
+   }
+
     // PrintCurrentTime
    PrintCurrentTime() {
   return this.sageAPI.invoke("PrintCurrentTime", []).then((json)=>{
@@ -904,6 +940,15 @@ class Utility {
 
    }
 
+    // RemoveWindowsRegistryValue
+   RemoveWindowsRegistryValue(Root, Key, Name) {
+  return this.sageAPI.invoke("RemoveWindowsRegistryValue", [Root,Key,Name]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
+});
+
+   }
+
     // RenameFilePath
    RenameFilePath(OriginalFilePath, NewFilePath) {
   return this.sageAPI.invoke("RenameFilePath", [OriginalFilePath,NewFilePath]).then((json)=>{
@@ -997,6 +1042,24 @@ class Utility {
     // SetScrollPosition
    SetScrollPosition(RelativeX, RelativeY) {
   return this.sageAPI.invoke("SetScrollPosition", [RelativeX,RelativeY]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
+});
+
+   }
+
+    // SetWindowsRegistryDWORDValue
+   SetWindowsRegistryDWORDValue(Root, Key, Name, Value) {
+  return this.sageAPI.invoke("SetWindowsRegistryDWORDValue", [Root,Key,Name,Value]).then((json)=>{
+   if (json && json.Result) return json.Result;
+   return json;
+});
+
+   }
+
+    // SetWindowsRegistryStringValue
+   SetWindowsRegistryStringValue(Root, Key, Name, Value) {
+  return this.sageAPI.invoke("SetWindowsRegistryStringValue", [Root,Key,Name,Value]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });

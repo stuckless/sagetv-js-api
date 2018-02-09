@@ -69,12 +69,12 @@ class UserRecordAPI {
 
     // GetUserRecordNames
    GetUserRecordNames(UserRecord) {
-  if (typeof UserRecord.Names !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(UserRecord.Names);
+  if (typeof UserRecord.UserRecordNames !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(UserRecord.UserRecordNames);
   });
   return this.sageAPI.invoke("GetUserRecordNames", [UserRecord.UserRecordID]).then((json)=>{
   if (!json || !json.Result) return null;
-  UserRecord.Names=json.Result;
+  UserRecord.UserRecordNames=json.Result;
   return json.Result;
 });
    }
@@ -98,4 +98,5 @@ class UserRecordAPI {
    }
 }
 
+UserRecordAPI.UserRecordNames="UserRecordNames";
     export default UserRecordAPI;

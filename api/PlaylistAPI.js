@@ -84,24 +84,24 @@ class PlaylistAPI {
 
     // GetPlaylistItems
    GetPlaylistItems(Playlist) {
-  if (typeof Playlist.Items !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Playlist.Items);
+  if (typeof Playlist.PlaylistItems !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Playlist.PlaylistItems);
   });
   return this.sageAPI.invoke("GetPlaylistItems", [Playlist.PlaylistID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Playlist.Items=json.Result;
+  Playlist.PlaylistItems=json.Result;
   return json.Result;
 });
    }
 
     // GetPlaylistProperties
    GetPlaylistProperties(Playlist) {
-  if (typeof Playlist.Properties !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Playlist.Properties);
+  if (typeof Playlist.PlaylistProperties !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Playlist.PlaylistProperties);
   });
   return this.sageAPI.invoke("GetPlaylistProperties", [Playlist.PlaylistID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Playlist.Properties=json.Result;
+  Playlist.PlaylistProperties=json.Result;
   return json.Result;
 });
    }
@@ -206,4 +206,8 @@ class PlaylistAPI {
    }
 }
 
+PlaylistAPI.Name="Name";
+PlaylistAPI.NumberOfPlaylistItems="NumberOfPlaylistItems";
+PlaylistAPI.PlaylistItems="PlaylistItems";
+PlaylistAPI.PlaylistProperties="PlaylistProperties";
     export default PlaylistAPI;

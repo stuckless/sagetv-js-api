@@ -6,72 +6,72 @@ class AlbumAPI {
 
     // GetAlbumArt
    GetAlbumArt(Album) {
-  if (typeof Album.Art !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Album.Art);
+  if (typeof Album.AlbumArt !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Album.AlbumArt);
   });
   return this.sageAPI.invoke("GetAlbumArt", [Album.AlbumID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Album.Art=json.Result;
+  Album.AlbumArt=json.Result;
   return json.Result;
 });
    }
 
     // GetAlbumArtist
    GetAlbumArtist(Album) {
-  if (typeof Album.Artist !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Album.Artist);
+  if (typeof Album.AlbumArtist !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Album.AlbumArtist);
   });
   return this.sageAPI.invoke("GetAlbumArtist", [Album.AlbumID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Album.Artist=json.Result;
+  Album.AlbumArtist=json.Result;
   return json.Result;
 });
    }
 
     // GetAlbumGenre
    GetAlbumGenre(Album) {
-  if (typeof Album.Genre !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Album.Genre);
+  if (typeof Album.AlbumGenre !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Album.AlbumGenre);
   });
   return this.sageAPI.invoke("GetAlbumGenre", [Album.AlbumID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Album.Genre=json.Result;
+  Album.AlbumGenre=json.Result;
   return json.Result;
 });
    }
 
     // GetAlbumName
    GetAlbumName(Album) {
-  if (typeof Album.Name !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Album.Name);
+  if (typeof Album.AlbumName !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Album.AlbumName);
   });
   return this.sageAPI.invoke("GetAlbumName", [Album.AlbumID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Album.Name=json.Result;
+  Album.AlbumName=json.Result;
   return json.Result;
 });
    }
 
     // GetAlbumTracks
    GetAlbumTracks(Album) {
-  if (typeof Album.Tracks !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Album.Tracks);
+  if (typeof Album.AlbumTracks !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Album.AlbumTracks);
   });
   return this.sageAPI.invoke("GetAlbumTracks", [Album.AlbumID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Album.Tracks=json.Result;
+  Album.AlbumTracks=json.Result;
   return json.Result;
 });
    }
 
     // GetAlbumYear
    GetAlbumYear(Album) {
-  if (typeof Album.Year !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Album.Year);
+  if (typeof Album.AlbumYear !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Album.AlbumYear);
   });
   return this.sageAPI.invoke("GetAlbumYear", [Album.AlbumID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Album.Year=json.Result;
+  Album.AlbumYear=json.Result;
   return json.Result;
 });
    }
@@ -155,4 +155,12 @@ class AlbumAPI {
    }
 }
 
+AlbumAPI.AlbumArt="AlbumArt";
+AlbumAPI.AlbumArtist="AlbumArtist";
+AlbumAPI.AlbumGenre="AlbumGenre";
+AlbumAPI.AlbumName="AlbumName";
+AlbumAPI.AlbumTracks="AlbumTracks";
+AlbumAPI.AlbumYear="AlbumYear";
+AlbumAPI.NumberOfTracks="NumberOfTracks";
+AlbumAPI.HasAlbumArt="HasAlbumArt";
     export default AlbumAPI;

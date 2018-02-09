@@ -365,4 +365,22 @@ class SeriesInfoAPI {
    }
 }
 
+SeriesInfoAPI.NumberOfCharactersInSeries="NumberOfCharactersInSeries";
+SeriesInfoAPI.SeriesActorList="SeriesActorList";
+SeriesInfoAPI.SeriesCategory="SeriesCategory";
+SeriesInfoAPI.SeriesCharacterList="SeriesCharacterList";
+SeriesInfoAPI.SeriesDayOfWeek="SeriesDayOfWeek";
+SeriesInfoAPI.SeriesDescription="SeriesDescription";
+SeriesInfoAPI.SeriesFinaleDate="SeriesFinaleDate";
+SeriesInfoAPI.SeriesHistory="SeriesHistory";
+SeriesInfoAPI.SeriesHourAndMinuteTimeslot="SeriesHourAndMinuteTimeslot";
+SeriesInfoAPI.SeriesID="SeriesID";
+SeriesInfoAPI.SeriesImage="SeriesImage";
+SeriesInfoAPI.SeriesImageCount="SeriesImageCount";
+SeriesInfoAPI.SeriesImageURL="SeriesImageURL";
+SeriesInfoAPI.SeriesNetwork="SeriesNetwork";
+SeriesInfoAPI.SeriesPremiereDate="SeriesPremiereDate";
+SeriesInfoAPI.SeriesSubCategory="SeriesSubCategory";
+SeriesInfoAPI.SeriesTitle="SeriesTitle";
+SeriesInfoAPI.HasSeriesImage="HasSeriesImage";
     export default SeriesInfoAPI;

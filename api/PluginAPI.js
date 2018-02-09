@@ -54,14 +54,11 @@ class PluginAPI {
 
     // GetAllPluginVersions
    GetAllPluginVersions(Plugin) {
-  if (typeof Plugin.AllPluginVersions !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Plugin.AllPluginVersions);
-  });
   return this.sageAPI.invoke("GetAllPluginVersions", [Plugin.PluginID]).then((json)=>{
-  if (!json || !json.Result) return null;
-  Plugin.AllPluginVersions=json.Result;
-  return json.Result;
+   if (json && json.Result) return json.Result;
+   return json;
 });
+
    }
 
     // GetAvailablePluginForID
@@ -114,12 +111,12 @@ class PluginAPI {
 
     // GetPluginAuthor
    GetPluginAuthor(Plugin) {
-  if (typeof Plugin.Author !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Plugin.Author);
+  if (typeof Plugin.PluginAuthor !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Plugin.PluginAuthor);
   });
   return this.sageAPI.invoke("GetPluginAuthor", [Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Plugin.Author=json.Result;
+  Plugin.PluginAuthor=json.Result;
   return json.Result;
 });
    }
@@ -153,12 +150,12 @@ class PluginAPI {
 
     // GetPluginConfigSettings
    GetPluginConfigSettings(Plugin) {
-  if (typeof Plugin.ConfigSettings !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Plugin.ConfigSettings);
+  if (typeof Plugin.PluginConfigSettings !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Plugin.PluginConfigSettings);
   });
   return this.sageAPI.invoke("GetPluginConfigSettings", [Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Plugin.ConfigSettings=json.Result;
+  Plugin.PluginConfigSettings=json.Result;
   return json.Result;
 });
    }
@@ -192,120 +189,120 @@ class PluginAPI {
 
     // GetPluginCreationDate
    GetPluginCreationDate(Plugin) {
-  if (typeof Plugin.CreationDate !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Plugin.CreationDate);
+  if (typeof Plugin.PluginCreationDate !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Plugin.PluginCreationDate);
   });
   return this.sageAPI.invoke("GetPluginCreationDate", [Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Plugin.CreationDate=json.Result;
+  Plugin.PluginCreationDate=json.Result;
   return json.Result;
 });
    }
 
     // GetPluginDemoVideos
    GetPluginDemoVideos(Plugin) {
-  if (typeof Plugin.DemoVideos !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Plugin.DemoVideos);
+  if (typeof Plugin.PluginDemoVideos !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Plugin.PluginDemoVideos);
   });
   return this.sageAPI.invoke("GetPluginDemoVideos", [Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Plugin.DemoVideos=json.Result;
+  Plugin.PluginDemoVideos=json.Result;
   return json.Result;
 });
    }
 
     // GetPluginDependencies
    GetPluginDependencies(Plugin) {
-  if (typeof Plugin.Dependencies !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Plugin.Dependencies);
+  if (typeof Plugin.PluginDependencies !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Plugin.PluginDependencies);
   });
   return this.sageAPI.invoke("GetPluginDependencies", [Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Plugin.Dependencies=json.Result;
+  Plugin.PluginDependencies=json.Result;
   return json.Result;
 });
    }
 
     // GetPluginDescription
    GetPluginDescription(Plugin) {
-  if (typeof Plugin.Description !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Plugin.Description);
+  if (typeof Plugin.PluginDescription !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Plugin.PluginDescription);
   });
   return this.sageAPI.invoke("GetPluginDescription", [Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Plugin.Description=json.Result;
+  Plugin.PluginDescription=json.Result;
   return json.Result;
 });
    }
 
     // GetPluginIdentifier
    GetPluginIdentifier(Plugin) {
-  if (typeof Plugin.Identifier !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Plugin.Identifier);
+  if (typeof Plugin.PluginIdentifier !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Plugin.PluginIdentifier);
   });
   return this.sageAPI.invoke("GetPluginIdentifier", [Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Plugin.Identifier=json.Result;
+  Plugin.PluginIdentifier=json.Result;
   return json.Result;
 });
    }
 
     // GetPluginImplementation
    GetPluginImplementation(Plugin) {
-  if (typeof Plugin.Implementation !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Plugin.Implementation);
+  if (typeof Plugin.PluginImplementation !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Plugin.PluginImplementation);
   });
   return this.sageAPI.invoke("GetPluginImplementation", [Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Plugin.Implementation=json.Result;
+  Plugin.PluginImplementation=json.Result;
   return json.Result;
 });
    }
 
     // GetPluginIncompatabilityReason
    GetPluginIncompatabilityReason(Plugin) {
-  if (typeof Plugin.IncompatabilityReason !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Plugin.IncompatabilityReason);
+  if (typeof Plugin.PluginIncompatabilityReason !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Plugin.PluginIncompatabilityReason);
   });
   return this.sageAPI.invoke("GetPluginIncompatabilityReason", [Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Plugin.IncompatabilityReason=json.Result;
+  Plugin.PluginIncompatabilityReason=json.Result;
   return json.Result;
 });
    }
 
     // GetPluginInstallDate
    GetPluginInstallDate(Plugin) {
-  if (typeof Plugin.InstallDate !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Plugin.InstallDate);
+  if (typeof Plugin.PluginInstallDate !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Plugin.PluginInstallDate);
   });
   return this.sageAPI.invoke("GetPluginInstallDate", [Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Plugin.InstallDate=json.Result;
+  Plugin.PluginInstallDate=json.Result;
   return json.Result;
 });
    }
 
     // GetPluginModificationDate
    GetPluginModificationDate(Plugin) {
-  if (typeof Plugin.ModificationDate !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Plugin.ModificationDate);
+  if (typeof Plugin.PluginModificationDate !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Plugin.PluginModificationDate);
   });
   return this.sageAPI.invoke("GetPluginModificationDate", [Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Plugin.ModificationDate=json.Result;
+  Plugin.PluginModificationDate=json.Result;
   return json.Result;
 });
    }
 
     // GetPluginName
    GetPluginName(Plugin) {
-  if (typeof Plugin.Name !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Plugin.Name);
+  if (typeof Plugin.PluginName !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Plugin.PluginName);
   });
   return this.sageAPI.invoke("GetPluginName", [Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Plugin.Name=json.Result;
+  Plugin.PluginName=json.Result;
   return json.Result;
 });
    }
@@ -321,72 +318,72 @@ class PluginAPI {
 
     // GetPluginReleaseNotes
    GetPluginReleaseNotes(Plugin) {
-  if (typeof Plugin.ReleaseNotes !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Plugin.ReleaseNotes);
+  if (typeof Plugin.PluginReleaseNotes !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Plugin.PluginReleaseNotes);
   });
   return this.sageAPI.invoke("GetPluginReleaseNotes", [Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Plugin.ReleaseNotes=json.Result;
+  Plugin.PluginReleaseNotes=json.Result;
   return json.Result;
 });
    }
 
     // GetPluginResourcePath
    GetPluginResourcePath(Plugin) {
-  if (typeof Plugin.ResourcePath !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Plugin.ResourcePath);
+  if (typeof Plugin.PluginResourcePath !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Plugin.PluginResourcePath);
   });
   return this.sageAPI.invoke("GetPluginResourcePath", [Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Plugin.ResourcePath=json.Result;
+  Plugin.PluginResourcePath=json.Result;
   return json.Result;
 });
    }
 
     // GetPluginScreenshots
    GetPluginScreenshots(Plugin) {
-  if (typeof Plugin.Screenshots !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Plugin.Screenshots);
+  if (typeof Plugin.PluginScreenshots !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Plugin.PluginScreenshots);
   });
   return this.sageAPI.invoke("GetPluginScreenshots", [Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Plugin.Screenshots=json.Result;
+  Plugin.PluginScreenshots=json.Result;
   return json.Result;
 });
    }
 
     // GetPluginType
    GetPluginType(Plugin) {
-  if (typeof Plugin.Type !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Plugin.Type);
+  if (typeof Plugin.PluginType !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Plugin.PluginType);
   });
   return this.sageAPI.invoke("GetPluginType", [Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Plugin.Type=json.Result;
+  Plugin.PluginType=json.Result;
   return json.Result;
 });
    }
 
     // GetPluginVersion
    GetPluginVersion(Plugin) {
-  if (typeof Plugin.Version !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Plugin.Version);
+  if (typeof Plugin.PluginVersion !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Plugin.PluginVersion);
   });
   return this.sageAPI.invoke("GetPluginVersion", [Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Plugin.Version=json.Result;
+  Plugin.PluginVersion=json.Result;
   return json.Result;
 });
    }
 
     // GetPluginWebsites
    GetPluginWebsites(Plugin) {
-  if (typeof Plugin.Websites !== 'undefined') return new Promise(function(resolve, reject) {
-     resolve(Plugin.Websites);
+  if (typeof Plugin.PluginWebsites !== 'undefined') return new Promise(function(resolve, reject) {
+     resolve(Plugin.PluginWebsites);
   });
   return this.sageAPI.invoke("GetPluginWebsites", [Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
-  Plugin.Websites=json.Result;
+  Plugin.PluginWebsites=json.Result;
   return json.Result;
 });
    }
@@ -614,4 +611,35 @@ class PluginAPI {
    }
 }
 
+PluginAPI.CanPluginBeDisabled="CanPluginBeDisabled";
+PluginAPI.ClientPluginIncompatabilityReason="ClientPluginIncompatabilityReason";
+PluginAPI.PluginAuthor="PluginAuthor";
+PluginAPI.PluginConfigSettings="PluginConfigSettings";
+PluginAPI.PluginCreationDate="PluginCreationDate";
+PluginAPI.PluginDemoVideos="PluginDemoVideos";
+PluginAPI.PluginDependencies="PluginDependencies";
+PluginAPI.PluginDescription="PluginDescription";
+PluginAPI.PluginIdentifier="PluginIdentifier";
+PluginAPI.PluginImplementation="PluginImplementation";
+PluginAPI.PluginIncompatabilityReason="PluginIncompatabilityReason";
+PluginAPI.PluginInstallDate="PluginInstallDate";
+PluginAPI.PluginModificationDate="PluginModificationDate";
+PluginAPI.PluginName="PluginName";
+PluginAPI.PluginReleaseNotes="PluginReleaseNotes";
+PluginAPI.PluginResourcePath="PluginResourcePath";
+PluginAPI.PluginScreenshots="PluginScreenshots";
+PluginAPI.PluginType="PluginType";
+PluginAPI.PluginVersion="PluginVersion";
+PluginAPI.PluginWebsites="PluginWebsites";
+PluginAPI.IsClientPluginCompatible="IsClientPluginCompatible";
+PluginAPI.IsClientPluginInstalled="IsClientPluginInstalled";
+PluginAPI.IsClientPluginInstalledSameVersion="IsClientPluginInstalledSameVersion";
+PluginAPI.IsPluginBeta="IsPluginBeta";
+PluginAPI.IsPluginCompatible="IsPluginCompatible";
+PluginAPI.IsPluginConfigurable="IsPluginConfigurable";
+PluginAPI.IsPluginDesktopOnly="IsPluginDesktopOnly";
+PluginAPI.IsPluginEnabled="IsPluginEnabled";
+PluginAPI.IsPluginFailed="IsPluginFailed";
+PluginAPI.IsPluginInstalled="IsPluginInstalled";
+PluginAPI.IsPluginInstalledSameVersion="IsPluginInstalledSameVersion";
     export default PluginAPI;

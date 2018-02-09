@@ -98,4 +98,11 @@ class TVEditorialAPI {
    }
 }
 
+TVEditorialAPI.EditorialAirDate="EditorialAirDate";
+TVEditorialAPI.EditorialImage="EditorialImage";
+TVEditorialAPI.EditorialNetwork="EditorialNetwork";
+TVEditorialAPI.EditorialShow="EditorialShow";
+TVEditorialAPI.EditorialText="EditorialText";
+TVEditorialAPI.EditorialTitle="EditorialTitle";
+TVEditorialAPI.HasEditorialImage="HasEditorialImage";
     export default TVEditorialAPI;
