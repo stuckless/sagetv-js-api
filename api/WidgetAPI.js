@@ -42,7 +42,7 @@ class WidgetAPI {
 
     // ExecuteWidgetChain
    ExecuteWidgetChain(Widget) {
-  return this.sageAPI.invoke("ExecuteWidgetChain", [Widget.WidgetID]).then((json)=>{
+  return this.sageAPI.invoke("ExecuteWidgetChain", ['widget:'+Widget.WidgetID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -51,7 +51,7 @@ class WidgetAPI {
 
     // ExecuteWidgetChainInCurrentMenuContext
    ExecuteWidgetChainInCurrentMenuContext(Widget) {
-  return this.sageAPI.invoke("ExecuteWidgetChainInCurrentMenuContext", [Widget.WidgetID]).then((json)=>{
+  return this.sageAPI.invoke("ExecuteWidgetChainInCurrentMenuContext", ['widget:'+Widget.WidgetID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -132,7 +132,7 @@ class WidgetAPI {
 
     // GetWidgetChild
    GetWidgetChild(Widget, Type, Name) {
-  return this.sageAPI.invoke("GetWidgetChild", [Widget.WidgetID,Type,Name]).then((json)=>{
+  return this.sageAPI.invoke("GetWidgetChild", ['widget:'+Widget.WidgetID,Type,Name]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -141,7 +141,7 @@ class WidgetAPI {
 
     // GetWidgetChildren
    GetWidgetChildren(Widget) {
-  return this.sageAPI.invoke("GetWidgetChildren", [Widget.WidgetID]).then((json)=>{
+  return this.sageAPI.invoke("GetWidgetChildren", ['widget:'+Widget.WidgetID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -171,7 +171,7 @@ class WidgetAPI {
   if (typeof Widget.WidgetName !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Widget.WidgetName);
   });
-  return this.sageAPI.invoke("GetWidgetName", [Widget.WidgetID]).then((json)=>{
+  return this.sageAPI.invoke("GetWidgetName", ['widget:'+Widget.WidgetID]).then((json)=>{
   if (!json || !json.Result) return null;
   Widget.WidgetName=json.Result;
   return json.Result;
@@ -180,7 +180,7 @@ class WidgetAPI {
 
     // GetWidgetParent
    GetWidgetParent(Widget, Type, Name) {
-  return this.sageAPI.invoke("GetWidgetParent", [Widget.WidgetID,Type,Name]).then((json)=>{
+  return this.sageAPI.invoke("GetWidgetParent", ['widget:'+Widget.WidgetID,Type,Name]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -189,7 +189,7 @@ class WidgetAPI {
 
     // GetWidgetParents
    GetWidgetParents(Widget) {
-  return this.sageAPI.invoke("GetWidgetParents", [Widget.WidgetID]).then((json)=>{
+  return this.sageAPI.invoke("GetWidgetParents", ['widget:'+Widget.WidgetID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -198,7 +198,7 @@ class WidgetAPI {
 
     // GetWidgetProperty
    GetWidgetProperty(Widget, PropertyName) {
-  return this.sageAPI.invoke("GetWidgetProperty", [Widget.WidgetID,PropertyName]).then((json)=>{
+  return this.sageAPI.invoke("GetWidgetProperty", ['widget:'+Widget.WidgetID,PropertyName]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -210,7 +210,7 @@ class WidgetAPI {
   if (typeof Widget.WidgetSymbol !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Widget.WidgetSymbol);
   });
-  return this.sageAPI.invoke("GetWidgetSymbol", [Widget.WidgetID]).then((json)=>{
+  return this.sageAPI.invoke("GetWidgetSymbol", ['widget:'+Widget.WidgetID]).then((json)=>{
   if (!json || !json.Result) return null;
   Widget.WidgetSymbol=json.Result;
   return json.Result;
@@ -222,7 +222,7 @@ class WidgetAPI {
   if (typeof Widget.WidgetType !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Widget.WidgetType);
   });
-  return this.sageAPI.invoke("GetWidgetType", [Widget.WidgetID]).then((json)=>{
+  return this.sageAPI.invoke("GetWidgetType", ['widget:'+Widget.WidgetID]).then((json)=>{
   if (!json || !json.Result) return null;
   Widget.WidgetType=json.Result;
   return json.Result;
@@ -240,7 +240,7 @@ class WidgetAPI {
 
     // HasWidgetProperty
    HasWidgetProperty(Widget, PropertyName) {
-  return this.sageAPI.invoke("HasWidgetProperty", [Widget.WidgetID,PropertyName]).then((json)=>{
+  return this.sageAPI.invoke("HasWidgetProperty", ['widget:'+Widget.WidgetID,PropertyName]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -285,7 +285,7 @@ class WidgetAPI {
 
     // LaunchMenuWidget
    LaunchMenuWidget(Widget) {
-  return this.sageAPI.invoke("LaunchMenuWidget", [Widget.WidgetID]).then((json)=>{
+  return this.sageAPI.invoke("LaunchMenuWidget", ['widget:'+Widget.WidgetID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -303,7 +303,7 @@ class WidgetAPI {
 
     // RemoveWidget
    RemoveWidget(Widget) {
-  return this.sageAPI.invoke("RemoveWidget", [Widget.WidgetID]).then((json)=>{
+  return this.sageAPI.invoke("RemoveWidget", ['widget:'+Widget.WidgetID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -330,7 +330,7 @@ class WidgetAPI {
 
     // SetWidgetName
    SetWidgetName(Widget, Name) {
-  return this.sageAPI.invoke("SetWidgetName", [Widget.WidgetID,Name]).then((json)=>{
+  return this.sageAPI.invoke("SetWidgetName", ['widget:'+Widget.WidgetID,Name]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -339,7 +339,7 @@ class WidgetAPI {
 
     // SetWidgetProperty
    SetWidgetProperty(Widget, PropertyName, PropertyValue) {
-  return this.sageAPI.invoke("SetWidgetProperty", [Widget.WidgetID,PropertyName,PropertyValue]).then((json)=>{
+  return this.sageAPI.invoke("SetWidgetProperty", ['widget:'+Widget.WidgetID,PropertyName,PropertyValue]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -347,6 +347,7 @@ class WidgetAPI {
    }
 }
 
+// Field Constants for Widget
 WidgetAPI.WidgetName="WidgetName";
 WidgetAPI.WidgetSymbol="WidgetSymbol";
 WidgetAPI.WidgetType="WidgetType";

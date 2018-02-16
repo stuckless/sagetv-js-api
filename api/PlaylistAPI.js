@@ -15,7 +15,7 @@ class PlaylistAPI {
 
     // AddToPlaylist
    AddToPlaylist(Playlist, NewItem) {
-  return this.sageAPI.invoke("AddToPlaylist", [Playlist.PlaylistID,NewItem]).then((json)=>{
+  return this.sageAPI.invoke("AddToPlaylist", ['playlist:'+Playlist.PlaylistID,NewItem]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -24,7 +24,7 @@ class PlaylistAPI {
 
     // DoesPlaylistHaveVideo
    DoesPlaylistHaveVideo(Playlist) {
-  return this.sageAPI.invoke("DoesPlaylistHaveVideo", [Playlist.PlaylistID]).then((json)=>{
+  return this.sageAPI.invoke("DoesPlaylistHaveVideo", ['playlist:'+Playlist.PlaylistID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -36,7 +36,7 @@ class PlaylistAPI {
   if (typeof Playlist.Name !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Playlist.Name);
   });
-  return this.sageAPI.invoke("GetName", [Playlist.PlaylistID]).then((json)=>{
+  return this.sageAPI.invoke("GetName", ['playlist:'+Playlist.PlaylistID]).then((json)=>{
   if (!json || !json.Result) return null;
   Playlist.Name=json.Result;
   return json.Result;
@@ -57,7 +57,7 @@ class PlaylistAPI {
   if (typeof Playlist.NumberOfPlaylistItems !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Playlist.NumberOfPlaylistItems);
   });
-  return this.sageAPI.invoke("GetNumberOfPlaylistItems", [Playlist.PlaylistID]).then((json)=>{
+  return this.sageAPI.invoke("GetNumberOfPlaylistItems", ['playlist:'+Playlist.PlaylistID]).then((json)=>{
   if (!json || !json.Result) return null;
   Playlist.NumberOfPlaylistItems=json.Result;
   return json.Result;
@@ -66,7 +66,7 @@ class PlaylistAPI {
 
     // GetPlaylistItemAt
    GetPlaylistItemAt(Playlist, Index) {
-  return this.sageAPI.invoke("GetPlaylistItemAt", [Playlist.PlaylistID,Index]).then((json)=>{
+  return this.sageAPI.invoke("GetPlaylistItemAt", ['playlist:'+Playlist.PlaylistID,Index]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -75,7 +75,7 @@ class PlaylistAPI {
 
     // GetPlaylistItemTypeAt
    GetPlaylistItemTypeAt(Playlist, Index) {
-  return this.sageAPI.invoke("GetPlaylistItemTypeAt", [Playlist.PlaylistID,Index]).then((json)=>{
+  return this.sageAPI.invoke("GetPlaylistItemTypeAt", ['playlist:'+Playlist.PlaylistID,Index]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -87,7 +87,7 @@ class PlaylistAPI {
   if (typeof Playlist.PlaylistItems !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Playlist.PlaylistItems);
   });
-  return this.sageAPI.invoke("GetPlaylistItems", [Playlist.PlaylistID]).then((json)=>{
+  return this.sageAPI.invoke("GetPlaylistItems", ['playlist:'+Playlist.PlaylistID]).then((json)=>{
   if (!json || !json.Result) return null;
   Playlist.PlaylistItems=json.Result;
   return json.Result;
@@ -99,7 +99,7 @@ class PlaylistAPI {
   if (typeof Playlist.PlaylistProperties !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Playlist.PlaylistProperties);
   });
-  return this.sageAPI.invoke("GetPlaylistProperties", [Playlist.PlaylistID]).then((json)=>{
+  return this.sageAPI.invoke("GetPlaylistProperties", ['playlist:'+Playlist.PlaylistID]).then((json)=>{
   if (!json || !json.Result) return null;
   Playlist.PlaylistProperties=json.Result;
   return json.Result;
@@ -108,7 +108,7 @@ class PlaylistAPI {
 
     // GetPlaylistProperty
    GetPlaylistProperty(Playlist, PropertyName) {
-  return this.sageAPI.invoke("GetPlaylistProperty", [Playlist.PlaylistID,PropertyName]).then((json)=>{
+  return this.sageAPI.invoke("GetPlaylistProperty", ['playlist:'+Playlist.PlaylistID,PropertyName]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -126,7 +126,7 @@ class PlaylistAPI {
 
     // InsertIntoPlaylist
    InsertIntoPlaylist(Playlist, InsertIndex, NewItem) {
-  return this.sageAPI.invoke("InsertIntoPlaylist", [Playlist.PlaylistID,InsertIndex,NewItem]).then((json)=>{
+  return this.sageAPI.invoke("InsertIntoPlaylist", ['playlist:'+Playlist.PlaylistID,InsertIndex,NewItem]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -135,7 +135,7 @@ class PlaylistAPI {
 
     // IsPlaylistObject
    IsPlaylistObject(Playlist) {
-  return this.sageAPI.invoke("IsPlaylistObject", [Playlist.PlaylistID]).then((json)=>{
+  return this.sageAPI.invoke("IsPlaylistObject", ['playlist:'+Playlist.PlaylistID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -144,7 +144,7 @@ class PlaylistAPI {
 
     // MovePlaylistItemDown
    MovePlaylistItemDown(Playlist, Index) {
-  return this.sageAPI.invoke("MovePlaylistItemDown", [Playlist.PlaylistID,Index]).then((json)=>{
+  return this.sageAPI.invoke("MovePlaylistItemDown", ['playlist:'+Playlist.PlaylistID,Index]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -153,7 +153,7 @@ class PlaylistAPI {
 
     // MovePlaylistItemUp
    MovePlaylistItemUp(Playlist, Index) {
-  return this.sageAPI.invoke("MovePlaylistItemUp", [Playlist.PlaylistID,Index]).then((json)=>{
+  return this.sageAPI.invoke("MovePlaylistItemUp", ['playlist:'+Playlist.PlaylistID,Index]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -162,7 +162,7 @@ class PlaylistAPI {
 
     // RemovePlaylist
    RemovePlaylist(Playlist) {
-  return this.sageAPI.invoke("RemovePlaylist", [Playlist.PlaylistID]).then((json)=>{
+  return this.sageAPI.invoke("RemovePlaylist", ['playlist:'+Playlist.PlaylistID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -171,7 +171,7 @@ class PlaylistAPI {
 
     // RemovePlaylistItem
    RemovePlaylistItem(Playlist, Item) {
-  return this.sageAPI.invoke("RemovePlaylistItem", [Playlist.PlaylistID,Item]).then((json)=>{
+  return this.sageAPI.invoke("RemovePlaylistItem", ['playlist:'+Playlist.PlaylistID,Item]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -180,7 +180,7 @@ class PlaylistAPI {
 
     // RemovePlaylistItemAt
    RemovePlaylistItemAt(Playlist, ItemIndex) {
-  return this.sageAPI.invoke("RemovePlaylistItemAt", [Playlist.PlaylistID,ItemIndex]).then((json)=>{
+  return this.sageAPI.invoke("RemovePlaylistItemAt", ['playlist:'+Playlist.PlaylistID,ItemIndex]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -189,7 +189,7 @@ class PlaylistAPI {
 
     // SetName
    SetName(Playlist, Name) {
-  return this.sageAPI.invoke("SetName", [Playlist.PlaylistID,Name]).then((json)=>{
+  return this.sageAPI.invoke("SetName", ['playlist:'+Playlist.PlaylistID,Name]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -198,7 +198,7 @@ class PlaylistAPI {
 
     // SetPlaylistProperty
    SetPlaylistProperty(Playlist, PropertyName, PropertyValue) {
-  return this.sageAPI.invoke("SetPlaylistProperty", [Playlist.PlaylistID,PropertyName,PropertyValue]).then((json)=>{
+  return this.sageAPI.invoke("SetPlaylistProperty", ['playlist:'+Playlist.PlaylistID,PropertyName,PropertyValue]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -206,6 +206,7 @@ class PlaylistAPI {
    }
 }
 
+// Field Constants for Playlist
 PlaylistAPI.Name="Name";
 PlaylistAPI.NumberOfPlaylistItems="NumberOfPlaylistItems";
 PlaylistAPI.PlaylistItems="PlaylistItems";

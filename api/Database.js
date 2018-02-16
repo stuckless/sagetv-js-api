@@ -527,4 +527,5 @@ class Database {
    }
 }
 
+// Field Constants for null
     export default Database;

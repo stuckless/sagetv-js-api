@@ -2048,4 +2048,5 @@ class Configuration {
    }
 }
 
+// Field Constants for null
     export default Configuration;

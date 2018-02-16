@@ -1202,4 +1202,5 @@ class Utility {
    }
 }
 
+// Field Constants for null
     export default Utility;

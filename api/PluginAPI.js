@@ -18,7 +18,7 @@ class PluginAPI {
   if (typeof Plugin.CanPluginBeDisabled !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.CanPluginBeDisabled);
   });
-  return this.sageAPI.invoke("CanPluginBeDisabled", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("CanPluginBeDisabled", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.CanPluginBeDisabled=json.Result;
   return json.Result;
@@ -27,7 +27,7 @@ class PluginAPI {
 
     // DisablePlugin
    DisablePlugin(Plugin) {
-  return this.sageAPI.invoke("DisablePlugin", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("DisablePlugin", ['plugin:'+Plugin.PluginID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -36,7 +36,7 @@ class PluginAPI {
 
     // EnablePlugin
    EnablePlugin(Plugin) {
-  return this.sageAPI.invoke("EnablePlugin", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("EnablePlugin", ['plugin:'+Plugin.PluginID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -54,7 +54,7 @@ class PluginAPI {
 
     // GetAllPluginVersions
    GetAllPluginVersions(Plugin) {
-  return this.sageAPI.invoke("GetAllPluginVersions", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("GetAllPluginVersions", ['plugin:'+Plugin.PluginID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -75,7 +75,7 @@ class PluginAPI {
   if (typeof Plugin.ClientPluginIncompatabilityReason !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.ClientPluginIncompatabilityReason);
   });
-  return this.sageAPI.invoke("GetClientPluginIncompatabilityReason", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("GetClientPluginIncompatabilityReason", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.ClientPluginIncompatabilityReason=json.Result;
   return json.Result;
@@ -114,7 +114,7 @@ class PluginAPI {
   if (typeof Plugin.PluginAuthor !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.PluginAuthor);
   });
-  return this.sageAPI.invoke("GetPluginAuthor", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginAuthor", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.PluginAuthor=json.Result;
   return json.Result;
@@ -123,7 +123,7 @@ class PluginAPI {
 
     // GetPluginConfigHelpText
    GetPluginConfigHelpText(Plugin, SettingName) {
-  return this.sageAPI.invoke("GetPluginConfigHelpText", [Plugin.PluginID,SettingName]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginConfigHelpText", ['plugin:'+Plugin.PluginID,SettingName]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -132,7 +132,7 @@ class PluginAPI {
 
     // GetPluginConfigLabel
    GetPluginConfigLabel(Plugin, SettingName) {
-  return this.sageAPI.invoke("GetPluginConfigLabel", [Plugin.PluginID,SettingName]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginConfigLabel", ['plugin:'+Plugin.PluginID,SettingName]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -141,7 +141,7 @@ class PluginAPI {
 
     // GetPluginConfigOptions
    GetPluginConfigOptions(Plugin, SettingName) {
-  return this.sageAPI.invoke("GetPluginConfigOptions", [Plugin.PluginID,SettingName]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginConfigOptions", ['plugin:'+Plugin.PluginID,SettingName]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -153,7 +153,7 @@ class PluginAPI {
   if (typeof Plugin.PluginConfigSettings !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.PluginConfigSettings);
   });
-  return this.sageAPI.invoke("GetPluginConfigSettings", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginConfigSettings", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.PluginConfigSettings=json.Result;
   return json.Result;
@@ -162,7 +162,7 @@ class PluginAPI {
 
     // GetPluginConfigType
    GetPluginConfigType(Plugin, SettingName) {
-  return this.sageAPI.invoke("GetPluginConfigType", [Plugin.PluginID,SettingName]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginConfigType", ['plugin:'+Plugin.PluginID,SettingName]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -171,7 +171,7 @@ class PluginAPI {
 
     // GetPluginConfigValue
    GetPluginConfigValue(Plugin, SettingName) {
-  return this.sageAPI.invoke("GetPluginConfigValue", [Plugin.PluginID,SettingName]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginConfigValue", ['plugin:'+Plugin.PluginID,SettingName]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -180,7 +180,7 @@ class PluginAPI {
 
     // GetPluginConfigValues
    GetPluginConfigValues(Plugin, SettingName) {
-  return this.sageAPI.invoke("GetPluginConfigValues", [Plugin.PluginID,SettingName]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginConfigValues", ['plugin:'+Plugin.PluginID,SettingName]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -192,7 +192,7 @@ class PluginAPI {
   if (typeof Plugin.PluginCreationDate !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.PluginCreationDate);
   });
-  return this.sageAPI.invoke("GetPluginCreationDate", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginCreationDate", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.PluginCreationDate=json.Result;
   return json.Result;
@@ -204,7 +204,7 @@ class PluginAPI {
   if (typeof Plugin.PluginDemoVideos !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.PluginDemoVideos);
   });
-  return this.sageAPI.invoke("GetPluginDemoVideos", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginDemoVideos", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.PluginDemoVideos=json.Result;
   return json.Result;
@@ -216,7 +216,7 @@ class PluginAPI {
   if (typeof Plugin.PluginDependencies !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.PluginDependencies);
   });
-  return this.sageAPI.invoke("GetPluginDependencies", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginDependencies", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.PluginDependencies=json.Result;
   return json.Result;
@@ -228,7 +228,7 @@ class PluginAPI {
   if (typeof Plugin.PluginDescription !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.PluginDescription);
   });
-  return this.sageAPI.invoke("GetPluginDescription", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginDescription", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.PluginDescription=json.Result;
   return json.Result;
@@ -240,7 +240,7 @@ class PluginAPI {
   if (typeof Plugin.PluginIdentifier !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.PluginIdentifier);
   });
-  return this.sageAPI.invoke("GetPluginIdentifier", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginIdentifier", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.PluginIdentifier=json.Result;
   return json.Result;
@@ -252,7 +252,7 @@ class PluginAPI {
   if (typeof Plugin.PluginImplementation !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.PluginImplementation);
   });
-  return this.sageAPI.invoke("GetPluginImplementation", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginImplementation", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.PluginImplementation=json.Result;
   return json.Result;
@@ -264,7 +264,7 @@ class PluginAPI {
   if (typeof Plugin.PluginIncompatabilityReason !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.PluginIncompatabilityReason);
   });
-  return this.sageAPI.invoke("GetPluginIncompatabilityReason", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginIncompatabilityReason", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.PluginIncompatabilityReason=json.Result;
   return json.Result;
@@ -276,7 +276,7 @@ class PluginAPI {
   if (typeof Plugin.PluginInstallDate !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.PluginInstallDate);
   });
-  return this.sageAPI.invoke("GetPluginInstallDate", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginInstallDate", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.PluginInstallDate=json.Result;
   return json.Result;
@@ -288,7 +288,7 @@ class PluginAPI {
   if (typeof Plugin.PluginModificationDate !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.PluginModificationDate);
   });
-  return this.sageAPI.invoke("GetPluginModificationDate", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginModificationDate", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.PluginModificationDate=json.Result;
   return json.Result;
@@ -300,7 +300,7 @@ class PluginAPI {
   if (typeof Plugin.PluginName !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.PluginName);
   });
-  return this.sageAPI.invoke("GetPluginName", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginName", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.PluginName=json.Result;
   return json.Result;
@@ -321,7 +321,7 @@ class PluginAPI {
   if (typeof Plugin.PluginReleaseNotes !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.PluginReleaseNotes);
   });
-  return this.sageAPI.invoke("GetPluginReleaseNotes", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginReleaseNotes", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.PluginReleaseNotes=json.Result;
   return json.Result;
@@ -333,7 +333,7 @@ class PluginAPI {
   if (typeof Plugin.PluginResourcePath !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.PluginResourcePath);
   });
-  return this.sageAPI.invoke("GetPluginResourcePath", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginResourcePath", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.PluginResourcePath=json.Result;
   return json.Result;
@@ -345,7 +345,7 @@ class PluginAPI {
   if (typeof Plugin.PluginScreenshots !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.PluginScreenshots);
   });
-  return this.sageAPI.invoke("GetPluginScreenshots", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginScreenshots", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.PluginScreenshots=json.Result;
   return json.Result;
@@ -357,7 +357,7 @@ class PluginAPI {
   if (typeof Plugin.PluginType !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.PluginType);
   });
-  return this.sageAPI.invoke("GetPluginType", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginType", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.PluginType=json.Result;
   return json.Result;
@@ -369,7 +369,7 @@ class PluginAPI {
   if (typeof Plugin.PluginVersion !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.PluginVersion);
   });
-  return this.sageAPI.invoke("GetPluginVersion", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginVersion", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.PluginVersion=json.Result;
   return json.Result;
@@ -381,7 +381,7 @@ class PluginAPI {
   if (typeof Plugin.PluginWebsites !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.PluginWebsites);
   });
-  return this.sageAPI.invoke("GetPluginWebsites", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("GetPluginWebsites", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.PluginWebsites=json.Result;
   return json.Result;
@@ -399,7 +399,7 @@ class PluginAPI {
 
     // InstallClientPlugin
    InstallClientPlugin(Plugin) {
-  return this.sageAPI.invoke("InstallClientPlugin", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("InstallClientPlugin", ['plugin:'+Plugin.PluginID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -408,7 +408,7 @@ class PluginAPI {
 
     // InstallPlugin
    InstallPlugin(Plugin) {
-  return this.sageAPI.invoke("InstallPlugin", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("InstallPlugin", ['plugin:'+Plugin.PluginID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -420,7 +420,7 @@ class PluginAPI {
   if (typeof Plugin.IsClientPluginCompatible !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.IsClientPluginCompatible);
   });
-  return this.sageAPI.invoke("IsClientPluginCompatible", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("IsClientPluginCompatible", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.IsClientPluginCompatible=json.Result;
   return json.Result;
@@ -432,7 +432,7 @@ class PluginAPI {
   if (typeof Plugin.IsClientPluginInstalled !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.IsClientPluginInstalled);
   });
-  return this.sageAPI.invoke("IsClientPluginInstalled", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("IsClientPluginInstalled", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.IsClientPluginInstalled=json.Result;
   return json.Result;
@@ -444,7 +444,7 @@ class PluginAPI {
   if (typeof Plugin.IsClientPluginInstalledSameVersion !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.IsClientPluginInstalledSameVersion);
   });
-  return this.sageAPI.invoke("IsClientPluginInstalledSameVersion", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("IsClientPluginInstalledSameVersion", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.IsClientPluginInstalledSameVersion=json.Result;
   return json.Result;
@@ -456,7 +456,7 @@ class PluginAPI {
   if (typeof Plugin.IsPluginBeta !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.IsPluginBeta);
   });
-  return this.sageAPI.invoke("IsPluginBeta", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("IsPluginBeta", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.IsPluginBeta=json.Result;
   return json.Result;
@@ -468,7 +468,7 @@ class PluginAPI {
   if (typeof Plugin.IsPluginCompatible !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.IsPluginCompatible);
   });
-  return this.sageAPI.invoke("IsPluginCompatible", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("IsPluginCompatible", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.IsPluginCompatible=json.Result;
   return json.Result;
@@ -480,7 +480,7 @@ class PluginAPI {
   if (typeof Plugin.IsPluginConfigurable !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.IsPluginConfigurable);
   });
-  return this.sageAPI.invoke("IsPluginConfigurable", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("IsPluginConfigurable", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.IsPluginConfigurable=json.Result;
   return json.Result;
@@ -492,7 +492,7 @@ class PluginAPI {
   if (typeof Plugin.IsPluginDesktopOnly !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.IsPluginDesktopOnly);
   });
-  return this.sageAPI.invoke("IsPluginDesktopOnly", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("IsPluginDesktopOnly", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.IsPluginDesktopOnly=json.Result;
   return json.Result;
@@ -504,7 +504,7 @@ class PluginAPI {
   if (typeof Plugin.IsPluginEnabled !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.IsPluginEnabled);
   });
-  return this.sageAPI.invoke("IsPluginEnabled", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("IsPluginEnabled", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.IsPluginEnabled=json.Result;
   return json.Result;
@@ -516,7 +516,7 @@ class PluginAPI {
   if (typeof Plugin.IsPluginFailed !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.IsPluginFailed);
   });
-  return this.sageAPI.invoke("IsPluginFailed", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("IsPluginFailed", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.IsPluginFailed=json.Result;
   return json.Result;
@@ -528,7 +528,7 @@ class PluginAPI {
   if (typeof Plugin.IsPluginInstalled !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.IsPluginInstalled);
   });
-  return this.sageAPI.invoke("IsPluginInstalled", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("IsPluginInstalled", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.IsPluginInstalled=json.Result;
   return json.Result;
@@ -540,7 +540,7 @@ class PluginAPI {
   if (typeof Plugin.IsPluginInstalledSameVersion !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Plugin.IsPluginInstalledSameVersion);
   });
-  return this.sageAPI.invoke("IsPluginInstalledSameVersion", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("IsPluginInstalledSameVersion", ['plugin:'+Plugin.PluginID]).then((json)=>{
   if (!json || !json.Result) return null;
   Plugin.IsPluginInstalledSameVersion=json.Result;
   return json.Result;
@@ -549,7 +549,7 @@ class PluginAPI {
 
     // IsPluginObject
    IsPluginObject(Plugin) {
-  return this.sageAPI.invoke("IsPluginObject", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("IsPluginObject", ['plugin:'+Plugin.PluginID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -576,7 +576,7 @@ class PluginAPI {
 
     // ResetPluginConfiguration
    ResetPluginConfiguration(Plugin) {
-  return this.sageAPI.invoke("ResetPluginConfiguration", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("ResetPluginConfiguration", ['plugin:'+Plugin.PluginID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -585,7 +585,7 @@ class PluginAPI {
 
     // SetPluginConfigValue
    SetPluginConfigValue(Plugin, SettingName, SettingValue) {
-  return this.sageAPI.invoke("SetPluginConfigValue", [Plugin.PluginID,SettingName,SettingValue]).then((json)=>{
+  return this.sageAPI.invoke("SetPluginConfigValue", ['plugin:'+Plugin.PluginID,SettingName,SettingValue]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -594,7 +594,7 @@ class PluginAPI {
 
     // SetPluginConfigValues
    SetPluginConfigValues(Plugin, SettingName, SettingValues) {
-  return this.sageAPI.invoke("SetPluginConfigValues", [Plugin.PluginID,SettingName,SettingValues]).then((json)=>{
+  return this.sageAPI.invoke("SetPluginConfigValues", ['plugin:'+Plugin.PluginID,SettingName,SettingValues]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -603,7 +603,7 @@ class PluginAPI {
 
     // UninstallPlugin
    UninstallPlugin(Plugin) {
-  return this.sageAPI.invoke("UninstallPlugin", [Plugin.PluginID]).then((json)=>{
+  return this.sageAPI.invoke("UninstallPlugin", ['plugin:'+Plugin.PluginID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -611,6 +611,7 @@ class PluginAPI {
    }
 }
 
+// Field Constants for Plugin
 PluginAPI.CanPluginBeDisabled="CanPluginBeDisabled";
 PluginAPI.ClientPluginIncompatabilityReason="ClientPluginIncompatabilityReason";
 PluginAPI.PluginAuthor="PluginAuthor";

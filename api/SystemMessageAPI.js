@@ -147,7 +147,7 @@ class SystemMessageAPI {
 
     // IsSystemMessageObject
    IsSystemMessageObject(SystemMessage) {
-  return this.sageAPI.invoke("IsSystemMessageObject", [SystemMessage.SystemMessageID]).then((json)=>{
+  return this.sageAPI.invoke("IsSystemMessageObject", ['systemmessage:'+SystemMessage.SystemMessageID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -173,6 +173,7 @@ class SystemMessageAPI {
    }
 }
 
+// Field Constants for SystemMessage
 SystemMessageAPI.SystemMessageEndTime="SystemMessageEndTime";
 SystemMessageAPI.SystemMessageLevel="SystemMessageLevel";
 SystemMessageAPI.SystemMessageRepeatCount="SystemMessageRepeatCount";

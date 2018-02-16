@@ -6,7 +6,7 @@ class CaptureDeviceAPI {
 
     // AddInputForRFChannel
    AddInputForRFChannel(CaptureDevice, RFChannel) {
-  return this.sageAPI.invoke("AddInputForRFChannel", [CaptureDevice.CaptureDeviceID,RFChannel]).then((json)=>{
+  return this.sageAPI.invoke("AddInputForRFChannel", ['capturedevice:'+CaptureDevice.CaptureDeviceID,RFChannel]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -33,7 +33,7 @@ class CaptureDeviceAPI {
 
     // GetCaptureDeviceAudioSource
    GetCaptureDeviceAudioSource(CaptureDevice) {
-  return this.sageAPI.invoke("GetCaptureDeviceAudioSource", [CaptureDevice.CaptureDeviceID]).then((json)=>{
+  return this.sageAPI.invoke("GetCaptureDeviceAudioSource", ['capturedevice:'+CaptureDevice.CaptureDeviceID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -42,7 +42,7 @@ class CaptureDeviceAPI {
 
     // GetCaptureDeviceBroadcastStandard
    GetCaptureDeviceBroadcastStandard(CaptureDevice) {
-  return this.sageAPI.invoke("GetCaptureDeviceBroadcastStandard", [CaptureDevice.CaptureDeviceID]).then((json)=>{
+  return this.sageAPI.invoke("GetCaptureDeviceBroadcastStandard", ['capturedevice:'+CaptureDevice.CaptureDeviceID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -51,7 +51,7 @@ class CaptureDeviceAPI {
 
     // GetCaptureDeviceCurrentRecordFile
    GetCaptureDeviceCurrentRecordFile(CaptureDevice) {
-  return this.sageAPI.invoke("GetCaptureDeviceCurrentRecordFile", [CaptureDevice.CaptureDeviceID]).then((json)=>{
+  return this.sageAPI.invoke("GetCaptureDeviceCurrentRecordFile", ['capturedevice:'+CaptureDevice.CaptureDeviceID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -60,7 +60,7 @@ class CaptureDeviceAPI {
 
     // GetCaptureDeviceDefaultQuality
    GetCaptureDeviceDefaultQuality(CaptureDevice) {
-  return this.sageAPI.invoke("GetCaptureDeviceDefaultQuality", [CaptureDevice.CaptureDeviceID]).then((json)=>{
+  return this.sageAPI.invoke("GetCaptureDeviceDefaultQuality", ['capturedevice:'+CaptureDevice.CaptureDeviceID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -69,7 +69,7 @@ class CaptureDeviceAPI {
 
     // GetCaptureDeviceInputs
    GetCaptureDeviceInputs(CaptureDevice) {
-  return this.sageAPI.invoke("GetCaptureDeviceInputs", [CaptureDevice.CaptureDeviceID]).then((json)=>{
+  return this.sageAPI.invoke("GetCaptureDeviceInputs", ['capturedevice:'+CaptureDevice.CaptureDeviceID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -78,7 +78,7 @@ class CaptureDeviceAPI {
 
     // GetCaptureDeviceMerit
    GetCaptureDeviceMerit(CaptureDevice) {
-  return this.sageAPI.invoke("GetCaptureDeviceMerit", [CaptureDevice.CaptureDeviceID]).then((json)=>{
+  return this.sageAPI.invoke("GetCaptureDeviceMerit", ['capturedevice:'+CaptureDevice.CaptureDeviceID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -87,7 +87,7 @@ class CaptureDeviceAPI {
 
     // GetCaptureDeviceQualities
    GetCaptureDeviceQualities(CaptureDevice) {
-  return this.sageAPI.invoke("GetCaptureDeviceQualities", [CaptureDevice.CaptureDeviceID]).then((json)=>{
+  return this.sageAPI.invoke("GetCaptureDeviceQualities", ['capturedevice:'+CaptureDevice.CaptureDeviceID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -123,7 +123,7 @@ class CaptureDeviceAPI {
 
     // GetLastUsedCaptureDeviceInput
    GetLastUsedCaptureDeviceInput(CaptureDevice) {
-  return this.sageAPI.invoke("GetLastUsedCaptureDeviceInput", [CaptureDevice.CaptureDeviceID]).then((json)=>{
+  return this.sageAPI.invoke("GetLastUsedCaptureDeviceInput", ['capturedevice:'+CaptureDevice.CaptureDeviceID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -132,7 +132,7 @@ class CaptureDeviceAPI {
 
     // IsCaptureDeviceANetworkEncoder
    IsCaptureDeviceANetworkEncoder(CaptureDevice) {
-  return this.sageAPI.invoke("IsCaptureDeviceANetworkEncoder", [CaptureDevice.CaptureDeviceID]).then((json)=>{
+  return this.sageAPI.invoke("IsCaptureDeviceANetworkEncoder", ['capturedevice:'+CaptureDevice.CaptureDeviceID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -141,7 +141,7 @@ class CaptureDeviceAPI {
 
     // IsCaptureDeviceFunctioning
    IsCaptureDeviceFunctioning(CaptureDevice) {
-  return this.sageAPI.invoke("IsCaptureDeviceFunctioning", [CaptureDevice.CaptureDeviceID]).then((json)=>{
+  return this.sageAPI.invoke("IsCaptureDeviceFunctioning", ['capturedevice:'+CaptureDevice.CaptureDeviceID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -150,7 +150,7 @@ class CaptureDeviceAPI {
 
     // IsCaptureDeviceHardwareEncoder
    IsCaptureDeviceHardwareEncoder(CaptureDevice) {
-  return this.sageAPI.invoke("IsCaptureDeviceHardwareEncoder", [CaptureDevice.CaptureDeviceID]).then((json)=>{
+  return this.sageAPI.invoke("IsCaptureDeviceHardwareEncoder", ['capturedevice:'+CaptureDevice.CaptureDeviceID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -159,7 +159,7 @@ class CaptureDeviceAPI {
 
     // IsCaptureDeviceInUseByALiveClient
    IsCaptureDeviceInUseByALiveClient(CaptureDevice) {
-  return this.sageAPI.invoke("IsCaptureDeviceInUseByALiveClient", [CaptureDevice.CaptureDeviceID]).then((json)=>{
+  return this.sageAPI.invoke("IsCaptureDeviceInUseByALiveClient", ['capturedevice:'+CaptureDevice.CaptureDeviceID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -168,7 +168,7 @@ class CaptureDeviceAPI {
 
     // SetCaptureDeviceAudioSource
    SetCaptureDeviceAudioSource(CaptureDevice, AudioSource) {
-  return this.sageAPI.invoke("SetCaptureDeviceAudioSource", [CaptureDevice.CaptureDeviceID,AudioSource]).then((json)=>{
+  return this.sageAPI.invoke("SetCaptureDeviceAudioSource", ['capturedevice:'+CaptureDevice.CaptureDeviceID,AudioSource]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -177,7 +177,7 @@ class CaptureDeviceAPI {
 
     // SetCaptureDeviceDTVStandard
    SetCaptureDeviceDTVStandard(CaptureDevice, DTVStandard) {
-  return this.sageAPI.invoke("SetCaptureDeviceDTVStandard", [CaptureDevice.CaptureDeviceID,DTVStandard]).then((json)=>{
+  return this.sageAPI.invoke("SetCaptureDeviceDTVStandard", ['capturedevice:'+CaptureDevice.CaptureDeviceID,DTVStandard]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -186,7 +186,7 @@ class CaptureDeviceAPI {
 
     // SetCaptureDeviceDefaultQuality
    SetCaptureDeviceDefaultQuality(CaptureDevice, Quality) {
-  return this.sageAPI.invoke("SetCaptureDeviceDefaultQuality", [CaptureDevice.CaptureDeviceID,Quality]).then((json)=>{
+  return this.sageAPI.invoke("SetCaptureDeviceDefaultQuality", ['capturedevice:'+CaptureDevice.CaptureDeviceID,Quality]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -195,7 +195,7 @@ class CaptureDeviceAPI {
 
     // SetCaptureDeviceMerit
    SetCaptureDeviceMerit(CaptureDevice, Merit) {
-  return this.sageAPI.invoke("SetCaptureDeviceMerit", [CaptureDevice.CaptureDeviceID,Merit]).then((json)=>{
+  return this.sageAPI.invoke("SetCaptureDeviceMerit", ['capturedevice:'+CaptureDevice.CaptureDeviceID,Merit]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -203,4 +203,5 @@ class CaptureDeviceAPI {
    }
 }
 
+// Field Constants for CaptureDevice
     export default CaptureDeviceAPI;

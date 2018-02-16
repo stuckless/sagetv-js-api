@@ -6,7 +6,7 @@ class CaptureDeviceInputAPI {
 
     // AutoScanChannelInfo
    AutoScanChannelInfo(CaptureDeviceInput, ChannelNumber) {
-  return this.sageAPI.invoke("AutoScanChannelInfo", [CaptureDeviceInput.CaptureDeviceInputID,ChannelNumber]).then((json)=>{
+  return this.sageAPI.invoke("AutoScanChannelInfo", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID,ChannelNumber]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -15,7 +15,7 @@ class CaptureDeviceInputAPI {
 
     // AutoTuneChannelTest
    AutoTuneChannelTest(CaptureDeviceInput, ChannelNumber) {
-  return this.sageAPI.invoke("AutoTuneChannelTest", [CaptureDeviceInput.CaptureDeviceInputID,ChannelNumber]).then((json)=>{
+  return this.sageAPI.invoke("AutoTuneChannelTest", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID,ChannelNumber]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -24,7 +24,7 @@ class CaptureDeviceInputAPI {
 
     // ConfigureInputForEPGDataLineup
    ConfigureInputForEPGDataLineup(CaptureDeviceInput, Lineup) {
-  return this.sageAPI.invoke("ConfigureInputForEPGDataLineup", [CaptureDeviceInput.CaptureDeviceInputID,Lineup]).then((json)=>{
+  return this.sageAPI.invoke("ConfigureInputForEPGDataLineup", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID,Lineup]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -33,7 +33,7 @@ class CaptureDeviceInputAPI {
 
     // ConfigureInputWithoutEPGData
    ConfigureInputWithoutEPGData(CaptureDeviceInput) {
-  return this.sageAPI.invoke("ConfigureInputWithoutEPGData", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("ConfigureInputWithoutEPGData", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -42,7 +42,7 @@ class CaptureDeviceInputAPI {
 
     // GetCaptureBrightness
    GetCaptureBrightness(CaptureDeviceInput) {
-  return this.sageAPI.invoke("GetCaptureBrightness", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("GetCaptureBrightness", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -51,7 +51,7 @@ class CaptureDeviceInputAPI {
 
     // GetCaptureContrast
    GetCaptureContrast(CaptureDeviceInput) {
-  return this.sageAPI.invoke("GetCaptureContrast", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("GetCaptureContrast", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -60,7 +60,7 @@ class CaptureDeviceInputAPI {
 
     // GetCaptureDeviceForInput
    GetCaptureDeviceForInput(CaptureDeviceInput) {
-  return this.sageAPI.invoke("GetCaptureDeviceForInput", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("GetCaptureDeviceForInput", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -78,7 +78,7 @@ class CaptureDeviceInputAPI {
 
     // GetCaptureDeviceInputBroadcastStandard
    GetCaptureDeviceInputBroadcastStandard(CaptureDeviceInput) {
-  return this.sageAPI.invoke("GetCaptureDeviceInputBroadcastStandard", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("GetCaptureDeviceInputBroadcastStandard", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -87,7 +87,7 @@ class CaptureDeviceInputAPI {
 
     // GetCaptureDeviceInputName
    GetCaptureDeviceInputName(CaptureDeviceInput) {
-  return this.sageAPI.invoke("GetCaptureDeviceInputName", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("GetCaptureDeviceInputName", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -105,7 +105,7 @@ class CaptureDeviceInputAPI {
 
     // GetCaptureHue
    GetCaptureHue(CaptureDeviceInput) {
-  return this.sageAPI.invoke("GetCaptureHue", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("GetCaptureHue", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -114,7 +114,7 @@ class CaptureDeviceInputAPI {
 
     // GetCaptureSaturation
    GetCaptureSaturation(CaptureDeviceInput) {
-  return this.sageAPI.invoke("GetCaptureSaturation", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("GetCaptureSaturation", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -123,7 +123,7 @@ class CaptureDeviceInputAPI {
 
     // GetCaptureSharpness
    GetCaptureSharpness(CaptureDeviceInput) {
-  return this.sageAPI.invoke("GetCaptureSharpness", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("GetCaptureSharpness", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -132,7 +132,7 @@ class CaptureDeviceInputAPI {
 
     // GetConstantRFChannelInput
    GetConstantRFChannelInput(CaptureDeviceInput) {
-  return this.sageAPI.invoke("GetConstantRFChannelInput", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("GetConstantRFChannelInput", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -141,7 +141,7 @@ class CaptureDeviceInputAPI {
 
     // GetInfraredTunerRemoteName
    GetInfraredTunerRemoteName(CaptureDeviceInput) {
-  return this.sageAPI.invoke("GetInfraredTunerRemoteName", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("GetInfraredTunerRemoteName", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -150,7 +150,7 @@ class CaptureDeviceInputAPI {
 
     // GetInfraredTuningPlugin
    GetInfraredTuningPlugin(CaptureDeviceInput) {
-  return this.sageAPI.invoke("GetInfraredTuningPlugin", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("GetInfraredTuningPlugin", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -159,7 +159,7 @@ class CaptureDeviceInputAPI {
 
     // GetInfraredTuningPluginPortNumber
    GetInfraredTuningPluginPortNumber(CaptureDeviceInput) {
-  return this.sageAPI.invoke("GetInfraredTuningPluginPortNumber", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("GetInfraredTuningPluginPortNumber", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -168,7 +168,7 @@ class CaptureDeviceInputAPI {
 
     // GetInputMaximumChannelNumber
    GetInputMaximumChannelNumber(CaptureDeviceInput) {
-  return this.sageAPI.invoke("GetInputMaximumChannelNumber", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("GetInputMaximumChannelNumber", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -177,7 +177,7 @@ class CaptureDeviceInputAPI {
 
     // GetInputMinimumChannelNumber
    GetInputMinimumChannelNumber(CaptureDeviceInput) {
-  return this.sageAPI.invoke("GetInputMinimumChannelNumber", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("GetInputMinimumChannelNumber", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -186,7 +186,7 @@ class CaptureDeviceInputAPI {
 
     // GetLineupForCaptureDeviceInput
    GetLineupForCaptureDeviceInput(CaptureDeviceInput) {
-  return this.sageAPI.invoke("GetLineupForCaptureDeviceInput", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("GetLineupForCaptureDeviceInput", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -195,7 +195,7 @@ class CaptureDeviceInputAPI {
 
     // GetPhysicalInputType
    GetPhysicalInputType(CaptureDeviceInput) {
-  return this.sageAPI.invoke("GetPhysicalInputType", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("GetPhysicalInputType", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -204,7 +204,7 @@ class CaptureDeviceInputAPI {
 
     // GetSignalStrength
    GetSignalStrength(CaptureDeviceInput) {
-  return this.sageAPI.invoke("GetSignalStrength", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("GetSignalStrength", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -213,7 +213,7 @@ class CaptureDeviceInputAPI {
 
     // IsCaptureDeviceInputAudioVideo
    IsCaptureDeviceInputAudioVideo(CaptureDeviceInput) {
-  return this.sageAPI.invoke("IsCaptureDeviceInputAudioVideo", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("IsCaptureDeviceInputAudioVideo", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -222,7 +222,7 @@ class CaptureDeviceInputAPI {
 
     // IsExternallyTunedRFInput
    IsExternallyTunedRFInput(CaptureDeviceInput) {
-  return this.sageAPI.invoke("IsExternallyTunedRFInput", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("IsExternallyTunedRFInput", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -231,7 +231,7 @@ class CaptureDeviceInputAPI {
 
     // IsRFSignalCableTV
    IsRFSignalCableTV(CaptureDeviceInput) {
-  return this.sageAPI.invoke("IsRFSignalCableTV", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("IsRFSignalCableTV", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -240,7 +240,7 @@ class CaptureDeviceInputAPI {
 
     // ReleaseCaptureDeviceInput
    ReleaseCaptureDeviceInput(CaptureDeviceInput) {
-  return this.sageAPI.invoke("ReleaseCaptureDeviceInput", [CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
+  return this.sageAPI.invoke("ReleaseCaptureDeviceInput", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -249,7 +249,7 @@ class CaptureDeviceInputAPI {
 
     // SetCaptureBrightness
    SetCaptureBrightness(CaptureDeviceInput, Value) {
-  return this.sageAPI.invoke("SetCaptureBrightness", [CaptureDeviceInput.CaptureDeviceInputID,Value]).then((json)=>{
+  return this.sageAPI.invoke("SetCaptureBrightness", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID,Value]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -258,7 +258,7 @@ class CaptureDeviceInputAPI {
 
     // SetCaptureContrast
    SetCaptureContrast(CaptureDeviceInput, Value) {
-  return this.sageAPI.invoke("SetCaptureContrast", [CaptureDeviceInput.CaptureDeviceInputID,Value]).then((json)=>{
+  return this.sageAPI.invoke("SetCaptureContrast", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID,Value]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -267,7 +267,7 @@ class CaptureDeviceInputAPI {
 
     // SetCaptureHue
    SetCaptureHue(CaptureDeviceInput, Value) {
-  return this.sageAPI.invoke("SetCaptureHue", [CaptureDeviceInput.CaptureDeviceInputID,Value]).then((json)=>{
+  return this.sageAPI.invoke("SetCaptureHue", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID,Value]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -276,7 +276,7 @@ class CaptureDeviceInputAPI {
 
     // SetCaptureSaturation
    SetCaptureSaturation(CaptureDeviceInput, Value) {
-  return this.sageAPI.invoke("SetCaptureSaturation", [CaptureDeviceInput.CaptureDeviceInputID,Value]).then((json)=>{
+  return this.sageAPI.invoke("SetCaptureSaturation", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID,Value]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -285,7 +285,7 @@ class CaptureDeviceInputAPI {
 
     // SetCaptureSharpness
    SetCaptureSharpness(CaptureDeviceInput, Value) {
-  return this.sageAPI.invoke("SetCaptureSharpness", [CaptureDeviceInput.CaptureDeviceInputID,Value]).then((json)=>{
+  return this.sageAPI.invoke("SetCaptureSharpness", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID,Value]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -294,7 +294,7 @@ class CaptureDeviceInputAPI {
 
     // SetInfraredTunerRemoteName
    SetInfraredTunerRemoteName(CaptureDeviceInput, ExternalDeviceName) {
-  return this.sageAPI.invoke("SetInfraredTunerRemoteName", [CaptureDeviceInput.CaptureDeviceInputID,ExternalDeviceName]).then((json)=>{
+  return this.sageAPI.invoke("SetInfraredTunerRemoteName", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID,ExternalDeviceName]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -303,7 +303,7 @@ class CaptureDeviceInputAPI {
 
     // SetInfraredTuningPluginAndPort
    SetInfraredTuningPluginAndPort(CaptureDeviceInput, PluginName, PluginPortNumber) {
-  return this.sageAPI.invoke("SetInfraredTuningPluginAndPort", [CaptureDeviceInput.CaptureDeviceInputID,PluginName,PluginPortNumber]).then((json)=>{
+  return this.sageAPI.invoke("SetInfraredTuningPluginAndPort", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID,PluginName,PluginPortNumber]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -312,7 +312,7 @@ class CaptureDeviceInputAPI {
 
     // SetRFSignalIsCableTV
    SetRFSignalIsCableTV(CaptureDeviceInput, Value) {
-  return this.sageAPI.invoke("SetRFSignalIsCableTV", [CaptureDeviceInput.CaptureDeviceInputID,Value]).then((json)=>{
+  return this.sageAPI.invoke("SetRFSignalIsCableTV", ['capturedeviceinput:'+CaptureDeviceInput.CaptureDeviceInputID,Value]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -320,4 +320,5 @@ class CaptureDeviceInputAPI {
    }
 }
 
+// Field Constants for CaptureDeviceInput
     export default CaptureDeviceInputAPI;

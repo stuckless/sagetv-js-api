@@ -24,7 +24,7 @@ class ShowAPI {
 
     // GetAiringsForShow
    GetAiringsForShow(Show, StartingAfterTime) {
-  return this.sageAPI.invoke("GetAiringsForShow", [Show.ShowID,StartingAfterTime]).then((json)=>{
+  return this.sageAPI.invoke("GetAiringsForShow", ['show:'+Show.ShowID,StartingAfterTime]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -33,7 +33,7 @@ class ShowAPI {
 
     // GetMovieImage
    GetMovieImage(Show, Thumb) {
-  return this.sageAPI.invoke("GetMovieImage", [Show.ShowID,Thumb]).then((json)=>{
+  return this.sageAPI.invoke("GetMovieImage", ['show:'+Show.ShowID,Thumb]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -42,7 +42,7 @@ class ShowAPI {
 
     // GetMovieImageAtIndex
    GetMovieImageAtIndex(Show, Index, Thumb) {
-  return this.sageAPI.invoke("GetMovieImageAtIndex", [Show.ShowID,Index,Thumb]).then((json)=>{
+  return this.sageAPI.invoke("GetMovieImageAtIndex", ['show:'+Show.ShowID,Index,Thumb]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -54,7 +54,7 @@ class ShowAPI {
   if (typeof Show.MovieImageCount !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.MovieImageCount);
   });
-  return this.sageAPI.invoke("GetMovieImageCount", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetMovieImageCount", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.MovieImageCount=json.Result;
   return json.Result;
@@ -63,7 +63,7 @@ class ShowAPI {
 
     // GetMovieImageURL
    GetMovieImageURL(Show, Thumb) {
-  return this.sageAPI.invoke("GetMovieImageURL", [Show.ShowID,Thumb]).then((json)=>{
+  return this.sageAPI.invoke("GetMovieImageURL", ['show:'+Show.ShowID,Thumb]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -72,7 +72,7 @@ class ShowAPI {
 
     // GetMovieImageURLAtIndex
    GetMovieImageURLAtIndex(Show, Index, Thumb) {
-  return this.sageAPI.invoke("GetMovieImageURLAtIndex", [Show.ShowID,Index,Thumb]).then((json)=>{
+  return this.sageAPI.invoke("GetMovieImageURLAtIndex", ['show:'+Show.ShowID,Index,Thumb]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -84,7 +84,7 @@ class ShowAPI {
   if (typeof Show.MovieStarRating !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.MovieStarRating);
   });
-  return this.sageAPI.invoke("GetMovieStarRating", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetMovieStarRating", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.MovieStarRating=json.Result;
   return json.Result;
@@ -96,7 +96,7 @@ class ShowAPI {
   if (typeof Show.OriginalAiringDate !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.OriginalAiringDate);
   });
-  return this.sageAPI.invoke("GetOriginalAiringDate", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetOriginalAiringDate", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.OriginalAiringDate=json.Result;
   return json.Result;
@@ -105,7 +105,7 @@ class ShowAPI {
 
     // GetPeopleAndCharacterInShowInRole
    GetPeopleAndCharacterInShowInRole(Show, Role) {
-  return this.sageAPI.invoke("GetPeopleAndCharacterInShowInRole", [Show.ShowID,Role]).then((json)=>{
+  return this.sageAPI.invoke("GetPeopleAndCharacterInShowInRole", ['show:'+Show.ShowID,Role]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -114,7 +114,7 @@ class ShowAPI {
 
     // GetPeopleAndCharacterInShowInRoles
    GetPeopleAndCharacterInShowInRoles(Show, RoleList) {
-  return this.sageAPI.invoke("GetPeopleAndCharacterInShowInRoles", [Show.ShowID,RoleList]).then((json)=>{
+  return this.sageAPI.invoke("GetPeopleAndCharacterInShowInRoles", ['show:'+Show.ShowID,RoleList]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -126,7 +126,7 @@ class ShowAPI {
   if (typeof Show.PeopleAndCharacterListInShow !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.PeopleAndCharacterListInShow);
   });
-  return this.sageAPI.invoke("GetPeopleAndCharacterListInShow", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetPeopleAndCharacterListInShow", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.PeopleAndCharacterListInShow=json.Result;
   return json.Result;
@@ -135,7 +135,7 @@ class ShowAPI {
 
     // GetPeopleAndCharacterListInShowInRole
    GetPeopleAndCharacterListInShowInRole(Show, Role) {
-  return this.sageAPI.invoke("GetPeopleAndCharacterListInShowInRole", [Show.ShowID,Role]).then((json)=>{
+  return this.sageAPI.invoke("GetPeopleAndCharacterListInShowInRole", ['show:'+Show.ShowID,Role]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -144,7 +144,7 @@ class ShowAPI {
 
     // GetPeopleAndCharacterListInShowInRoles
    GetPeopleAndCharacterListInShowInRoles(Show, RoleList) {
-  return this.sageAPI.invoke("GetPeopleAndCharacterListInShowInRoles", [Show.ShowID,RoleList]).then((json)=>{
+  return this.sageAPI.invoke("GetPeopleAndCharacterListInShowInRoles", ['show:'+Show.ShowID,RoleList]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -156,7 +156,7 @@ class ShowAPI {
   if (typeof Show.PeopleInShow !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.PeopleInShow);
   });
-  return this.sageAPI.invoke("GetPeopleInShow", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetPeopleInShow", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.PeopleInShow=json.Result;
   return json.Result;
@@ -165,7 +165,7 @@ class ShowAPI {
 
     // GetPeopleInShowInRole
    GetPeopleInShowInRole(Show, Role) {
-  return this.sageAPI.invoke("GetPeopleInShowInRole", [Show.ShowID,Role]).then((json)=>{
+  return this.sageAPI.invoke("GetPeopleInShowInRole", ['show:'+Show.ShowID,Role]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -174,7 +174,7 @@ class ShowAPI {
 
     // GetPeopleInShowInRoles
    GetPeopleInShowInRoles(Show, RoleList) {
-  return this.sageAPI.invoke("GetPeopleInShowInRoles", [Show.ShowID,RoleList]).then((json)=>{
+  return this.sageAPI.invoke("GetPeopleInShowInRoles", ['show:'+Show.ShowID,RoleList]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -186,7 +186,7 @@ class ShowAPI {
   if (typeof Show.PeopleListInShow !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.PeopleListInShow);
   });
-  return this.sageAPI.invoke("GetPeopleListInShow", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetPeopleListInShow", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.PeopleListInShow=json.Result;
   return json.Result;
@@ -195,7 +195,7 @@ class ShowAPI {
 
     // GetPeopleListInShowInRole
    GetPeopleListInShowInRole(Show, Role) {
-  return this.sageAPI.invoke("GetPeopleListInShowInRole", [Show.ShowID,Role]).then((json)=>{
+  return this.sageAPI.invoke("GetPeopleListInShowInRole", ['show:'+Show.ShowID,Role]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -204,7 +204,7 @@ class ShowAPI {
 
     // GetPeopleListInShowInRoles
    GetPeopleListInShowInRoles(Show, RoleList) {
-  return this.sageAPI.invoke("GetPeopleListInShowInRoles", [Show.ShowID,RoleList]).then((json)=>{
+  return this.sageAPI.invoke("GetPeopleListInShowInRoles", ['show:'+Show.ShowID,RoleList]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -216,7 +216,7 @@ class ShowAPI {
   if (typeof Show.PersonListInShow !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.PersonListInShow);
   });
-  return this.sageAPI.invoke("GetPersonListInShow", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetPersonListInShow", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.PersonListInShow=json.Result;
   return json.Result;
@@ -225,7 +225,7 @@ class ShowAPI {
 
     // GetPersonListInShowInRole
    GetPersonListInShowInRole(Show, Role) {
-  return this.sageAPI.invoke("GetPersonListInShowInRole", [Show.ShowID,Role]).then((json)=>{
+  return this.sageAPI.invoke("GetPersonListInShowInRole", ['show:'+Show.ShowID,Role]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -234,7 +234,7 @@ class ShowAPI {
 
     // GetPersonListInShowInRoles
    GetPersonListInShowInRoles(Show, RoleList) {
-  return this.sageAPI.invoke("GetPersonListInShowInRoles", [Show.ShowID,RoleList]).then((json)=>{
+  return this.sageAPI.invoke("GetPersonListInShowInRoles", ['show:'+Show.ShowID,RoleList]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -255,7 +255,7 @@ class ShowAPI {
   if (typeof Show.RolesInShow !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.RolesInShow);
   });
-  return this.sageAPI.invoke("GetRolesInShow", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetRolesInShow", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.RolesInShow=json.Result;
   return json.Result;
@@ -276,7 +276,7 @@ class ShowAPI {
   if (typeof Show.ShowCategoriesList !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.ShowCategoriesList);
   });
-  return this.sageAPI.invoke("GetShowCategoriesList", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetShowCategoriesList", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.ShowCategoriesList=json.Result;
   return json.Result;
@@ -288,7 +288,7 @@ class ShowAPI {
   if (typeof Show.ShowCategoriesString !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.ShowCategoriesString);
   });
-  return this.sageAPI.invoke("GetShowCategoriesString", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetShowCategoriesString", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.ShowCategoriesString=json.Result;
   return json.Result;
@@ -297,7 +297,7 @@ class ShowAPI {
 
     // GetShowCategoriesString
    GetShowCategoriesString(Show, Delimiter) {
-  return this.sageAPI.invoke("GetShowCategoriesString", [Show.ShowID,Delimiter]).then((json)=>{
+  return this.sageAPI.invoke("GetShowCategoriesString", ['show:'+Show.ShowID,Delimiter]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -309,7 +309,7 @@ class ShowAPI {
   if (typeof Show.ShowCategory !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.ShowCategory);
   });
-  return this.sageAPI.invoke("GetShowCategory", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetShowCategory", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.ShowCategory=json.Result;
   return json.Result;
@@ -321,7 +321,7 @@ class ShowAPI {
   if (typeof Show.ShowDescription !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.ShowDescription);
   });
-  return this.sageAPI.invoke("GetShowDescription", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetShowDescription", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.ShowDescription=json.Result;
   return json.Result;
@@ -333,7 +333,7 @@ class ShowAPI {
   if (typeof Show.ShowDuration !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.ShowDuration);
   });
-  return this.sageAPI.invoke("GetShowDuration", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetShowDuration", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.ShowDuration=json.Result;
   return json.Result;
@@ -345,7 +345,7 @@ class ShowAPI {
   if (typeof Show.ShowEpisode !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.ShowEpisode);
   });
-  return this.sageAPI.invoke("GetShowEpisode", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetShowEpisode", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.ShowEpisode=json.Result;
   return json.Result;
@@ -357,7 +357,7 @@ class ShowAPI {
   if (typeof Show.ShowEpisodeNumber !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.ShowEpisodeNumber);
   });
-  return this.sageAPI.invoke("GetShowEpisodeNumber", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetShowEpisodeNumber", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.ShowEpisodeNumber=json.Result;
   return json.Result;
@@ -369,7 +369,7 @@ class ShowAPI {
   if (typeof Show.ShowExpandedRatings !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.ShowExpandedRatings);
   });
-  return this.sageAPI.invoke("GetShowExpandedRatings", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetShowExpandedRatings", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.ShowExpandedRatings=json.Result;
   return json.Result;
@@ -381,7 +381,7 @@ class ShowAPI {
   if (typeof Show.ShowExternalID !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.ShowExternalID);
   });
-  return this.sageAPI.invoke("GetShowExternalID", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetShowExternalID", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.ShowExternalID=json.Result;
   return json.Result;
@@ -399,7 +399,7 @@ class ShowAPI {
 
     // GetShowImage
    GetShowImage(Show, Type, Index, Fallback) {
-  return this.sageAPI.invoke("GetShowImage", [Show.ShowID,Type,Index,Fallback]).then((json)=>{
+  return this.sageAPI.invoke("GetShowImage", ['show:'+Show.ShowID,Type,Index,Fallback]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -408,7 +408,7 @@ class ShowAPI {
 
     // GetShowImageCount
    GetShowImageCount(Show, Type) {
-  return this.sageAPI.invoke("GetShowImageCount", [Show.ShowID,Type]).then((json)=>{
+  return this.sageAPI.invoke("GetShowImageCount", ['show:'+Show.ShowID,Type]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -420,7 +420,7 @@ class ShowAPI {
   if (typeof Show.ShowLanguage !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.ShowLanguage);
   });
-  return this.sageAPI.invoke("GetShowLanguage", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetShowLanguage", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.ShowLanguage=json.Result;
   return json.Result;
@@ -432,7 +432,7 @@ class ShowAPI {
   if (typeof Show.ShowMisc !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.ShowMisc);
   });
-  return this.sageAPI.invoke("GetShowMisc", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetShowMisc", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.ShowMisc=json.Result;
   return json.Result;
@@ -444,7 +444,7 @@ class ShowAPI {
   if (typeof Show.ShowParentalRating !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.ShowParentalRating);
   });
-  return this.sageAPI.invoke("GetShowParentalRating", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetShowParentalRating", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.ShowParentalRating=json.Result;
   return json.Result;
@@ -456,7 +456,7 @@ class ShowAPI {
   if (typeof Show.ShowRated !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.ShowRated);
   });
-  return this.sageAPI.invoke("GetShowRated", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetShowRated", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.ShowRated=json.Result;
   return json.Result;
@@ -468,7 +468,7 @@ class ShowAPI {
   if (typeof Show.ShowSeasonNumber !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.ShowSeasonNumber);
   });
-  return this.sageAPI.invoke("GetShowSeasonNumber", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetShowSeasonNumber", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.ShowSeasonNumber=json.Result;
   return json.Result;
@@ -480,7 +480,7 @@ class ShowAPI {
   if (typeof Show.ShowSeriesInfo !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.ShowSeriesInfo);
   });
-  return this.sageAPI.invoke("GetShowSeriesInfo", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetShowSeriesInfo", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.ShowSeriesInfo=json.Result;
   return json.Result;
@@ -492,7 +492,7 @@ class ShowAPI {
   if (typeof Show.ShowSubCategory !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.ShowSubCategory);
   });
-  return this.sageAPI.invoke("GetShowSubCategory", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetShowSubCategory", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.ShowSubCategory=json.Result;
   return json.Result;
@@ -504,7 +504,7 @@ class ShowAPI {
   if (typeof Show.ShowTitle !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.ShowTitle);
   });
-  return this.sageAPI.invoke("GetShowTitle", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetShowTitle", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.ShowTitle=json.Result;
   return json.Result;
@@ -516,7 +516,7 @@ class ShowAPI {
   if (typeof Show.ShowYear !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.ShowYear);
   });
-  return this.sageAPI.invoke("GetShowYear", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("GetShowYear", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.ShowYear=json.Result;
   return json.Result;
@@ -528,7 +528,7 @@ class ShowAPI {
   if (typeof Show.HasMovieImage !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.HasMovieImage);
   });
-  return this.sageAPI.invoke("HasMovieImage", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("HasMovieImage", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.HasMovieImage=json.Result;
   return json.Result;
@@ -540,7 +540,7 @@ class ShowAPI {
   if (typeof Show.IsMovie !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.IsMovie);
   });
-  return this.sageAPI.invoke("IsMovie", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("IsMovie", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.IsMovie=json.Result;
   return json.Result;
@@ -561,7 +561,7 @@ class ShowAPI {
   if (typeof Show.IsShowEPGDataUnique !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Show.IsShowEPGDataUnique);
   });
-  return this.sageAPI.invoke("IsShowEPGDataUnique", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("IsShowEPGDataUnique", ['show:'+Show.ShowID]).then((json)=>{
   if (!json || !json.Result) return null;
   Show.IsShowEPGDataUnique=json.Result;
   return json.Result;
@@ -579,7 +579,7 @@ class ShowAPI {
 
     // IsShowObject
    IsShowObject(Show) {
-  return this.sageAPI.invoke("IsShowObject", [Show.ShowID]).then((json)=>{
+  return this.sageAPI.invoke("IsShowObject", ['show:'+Show.ShowID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -596,6 +596,7 @@ class ShowAPI {
    }
 }
 
+// Field Constants for Show
 ShowAPI.MovieImageCount="MovieImageCount";
 ShowAPI.MovieStarRating="MovieStarRating";
 ShowAPI.OriginalAiringDate="OriginalAiringDate";

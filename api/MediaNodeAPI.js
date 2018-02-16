@@ -6,7 +6,7 @@ class MediaNodeAPI {
 
     // AppendNodeFilter
    AppendNodeFilter(MediaNode, Technique, MatchPasses) {
-  return this.sageAPI.invoke("AppendNodeFilter", [MediaNode.MediaNodeID,Technique,MatchPasses]).then((json)=>{
+  return this.sageAPI.invoke("AppendNodeFilter", ['medianode:'+MediaNode.MediaNodeID,Technique,MatchPasses]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -27,7 +27,7 @@ class MediaNodeAPI {
   if (typeof MediaNode.AllNodeDescendants !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(MediaNode.AllNodeDescendants);
   });
-  return this.sageAPI.invoke("GetAllNodeDescendants", [MediaNode.MediaNodeID]).then((json)=>{
+  return this.sageAPI.invoke("GetAllNodeDescendants", ['medianode:'+MediaNode.MediaNodeID]).then((json)=>{
   if (!json || !json.Result) return null;
   MediaNode.AllNodeDescendants=json.Result;
   return json.Result;
@@ -36,7 +36,7 @@ class MediaNodeAPI {
 
     // GetChildrenCheckedCount
    GetChildrenCheckedCount(MediaNode, State) {
-  return this.sageAPI.invoke("GetChildrenCheckedCount", [MediaNode.MediaNodeID,State]).then((json)=>{
+  return this.sageAPI.invoke("GetChildrenCheckedCount", ['medianode:'+MediaNode.MediaNodeID,State]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -45,7 +45,7 @@ class MediaNodeAPI {
 
     // GetChildrenCheckedNodes
    GetChildrenCheckedNodes(MediaNode, State) {
-  return this.sageAPI.invoke("GetChildrenCheckedNodes", [MediaNode.MediaNodeID,State]).then((json)=>{
+  return this.sageAPI.invoke("GetChildrenCheckedNodes", ['medianode:'+MediaNode.MediaNodeID,State]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -72,7 +72,7 @@ class MediaNodeAPI {
 
     // GetNodeChildAt
    GetNodeChildAt(MediaNode, Index) {
-  return this.sageAPI.invoke("GetNodeChildAt", [MediaNode.MediaNodeID,Index]).then((json)=>{
+  return this.sageAPI.invoke("GetNodeChildAt", ['medianode:'+MediaNode.MediaNodeID,Index]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -81,7 +81,7 @@ class MediaNodeAPI {
 
     // GetNodeChildren
    GetNodeChildren(MediaNode) {
-  return this.sageAPI.invoke("GetNodeChildren", [MediaNode.MediaNodeID]).then((json)=>{
+  return this.sageAPI.invoke("GetNodeChildren", ['medianode:'+MediaNode.MediaNodeID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -93,7 +93,7 @@ class MediaNodeAPI {
   if (typeof MediaNode.NodeDataObject !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(MediaNode.NodeDataObject);
   });
-  return this.sageAPI.invoke("GetNodeDataObject", [MediaNode.MediaNodeID]).then((json)=>{
+  return this.sageAPI.invoke("GetNodeDataObject", ['medianode:'+MediaNode.MediaNodeID]).then((json)=>{
   if (!json || !json.Result) return null;
   MediaNode.NodeDataObject=json.Result;
   return json.Result;
@@ -105,7 +105,7 @@ class MediaNodeAPI {
   if (typeof MediaNode.NodeDataType !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(MediaNode.NodeDataType);
   });
-  return this.sageAPI.invoke("GetNodeDataType", [MediaNode.MediaNodeID]).then((json)=>{
+  return this.sageAPI.invoke("GetNodeDataType", ['medianode:'+MediaNode.MediaNodeID]).then((json)=>{
   if (!json || !json.Result) return null;
   MediaNode.NodeDataType=json.Result;
   return json.Result;
@@ -114,7 +114,7 @@ class MediaNodeAPI {
 
     // GetNodeFilterTechnique
    GetNodeFilterTechnique(MediaNode, FilterIndex) {
-  return this.sageAPI.invoke("GetNodeFilterTechnique", [MediaNode.MediaNodeID,FilterIndex]).then((json)=>{
+  return this.sageAPI.invoke("GetNodeFilterTechnique", ['medianode:'+MediaNode.MediaNodeID,FilterIndex]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -126,7 +126,7 @@ class MediaNodeAPI {
   if (typeof MediaNode.NodeFullPath !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(MediaNode.NodeFullPath);
   });
-  return this.sageAPI.invoke("GetNodeFullPath", [MediaNode.MediaNodeID]).then((json)=>{
+  return this.sageAPI.invoke("GetNodeFullPath", ['medianode:'+MediaNode.MediaNodeID]).then((json)=>{
   if (!json || !json.Result) return null;
   MediaNode.NodeFullPath=json.Result;
   return json.Result;
@@ -138,7 +138,7 @@ class MediaNodeAPI {
   if (typeof MediaNode.NodeIcon !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(MediaNode.NodeIcon);
   });
-  return this.sageAPI.invoke("GetNodeIcon", [MediaNode.MediaNodeID]).then((json)=>{
+  return this.sageAPI.invoke("GetNodeIcon", ['medianode:'+MediaNode.MediaNodeID]).then((json)=>{
   if (!json || !json.Result) return null;
   MediaNode.NodeIcon=json.Result;
   return json.Result;
@@ -150,7 +150,7 @@ class MediaNodeAPI {
   if (typeof MediaNode.NodeNumChildren !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(MediaNode.NodeNumChildren);
   });
-  return this.sageAPI.invoke("GetNodeNumChildren", [MediaNode.MediaNodeID]).then((json)=>{
+  return this.sageAPI.invoke("GetNodeNumChildren", ['medianode:'+MediaNode.MediaNodeID]).then((json)=>{
   if (!json || !json.Result) return null;
   MediaNode.NodeNumChildren=json.Result;
   return json.Result;
@@ -162,7 +162,7 @@ class MediaNodeAPI {
   if (typeof MediaNode.NodeNumFilters !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(MediaNode.NodeNumFilters);
   });
-  return this.sageAPI.invoke("GetNodeNumFilters", [MediaNode.MediaNodeID]).then((json)=>{
+  return this.sageAPI.invoke("GetNodeNumFilters", ['medianode:'+MediaNode.MediaNodeID]).then((json)=>{
   if (!json || !json.Result) return null;
   MediaNode.NodeNumFilters=json.Result;
   return json.Result;
@@ -171,7 +171,7 @@ class MediaNodeAPI {
 
     // GetNodeParent
    GetNodeParent(MediaNode) {
-  return this.sageAPI.invoke("GetNodeParent", [MediaNode.MediaNodeID]).then((json)=>{
+  return this.sageAPI.invoke("GetNodeParent", ['medianode:'+MediaNode.MediaNodeID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -183,7 +183,7 @@ class MediaNodeAPI {
   if (typeof MediaNode.NodePrimaryLabel !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(MediaNode.NodePrimaryLabel);
   });
-  return this.sageAPI.invoke("GetNodePrimaryLabel", [MediaNode.MediaNodeID]).then((json)=>{
+  return this.sageAPI.invoke("GetNodePrimaryLabel", ['medianode:'+MediaNode.MediaNodeID]).then((json)=>{
   if (!json || !json.Result) return null;
   MediaNode.NodePrimaryLabel=json.Result;
   return json.Result;
@@ -192,7 +192,7 @@ class MediaNodeAPI {
 
     // GetNodeProperty
    GetNodeProperty(MediaNode, PropertyName) {
-  return this.sageAPI.invoke("GetNodeProperty", [MediaNode.MediaNodeID,PropertyName]).then((json)=>{
+  return this.sageAPI.invoke("GetNodeProperty", ['medianode:'+MediaNode.MediaNodeID,PropertyName]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -204,7 +204,7 @@ class MediaNodeAPI {
   if (typeof MediaNode.NodeSecondaryLabel !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(MediaNode.NodeSecondaryLabel);
   });
-  return this.sageAPI.invoke("GetNodeSecondaryLabel", [MediaNode.MediaNodeID]).then((json)=>{
+  return this.sageAPI.invoke("GetNodeSecondaryLabel", ['medianode:'+MediaNode.MediaNodeID]).then((json)=>{
   if (!json || !json.Result) return null;
   MediaNode.NodeSecondaryLabel=json.Result;
   return json.Result;
@@ -216,7 +216,7 @@ class MediaNodeAPI {
   if (typeof MediaNode.NodeSortTechnique !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(MediaNode.NodeSortTechnique);
   });
-  return this.sageAPI.invoke("GetNodeSortTechnique", [MediaNode.MediaNodeID]).then((json)=>{
+  return this.sageAPI.invoke("GetNodeSortTechnique", ['medianode:'+MediaNode.MediaNodeID]).then((json)=>{
   if (!json || !json.Result) return null;
   MediaNode.NodeSortTechnique=json.Result;
   return json.Result;
@@ -228,7 +228,7 @@ class MediaNodeAPI {
   if (typeof MediaNode.NodeThumbnail !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(MediaNode.NodeThumbnail);
   });
-  return this.sageAPI.invoke("GetNodeThumbnail", [MediaNode.MediaNodeID]).then((json)=>{
+  return this.sageAPI.invoke("GetNodeThumbnail", ['medianode:'+MediaNode.MediaNodeID]).then((json)=>{
   if (!json || !json.Result) return null;
   MediaNode.NodeThumbnail=json.Result;
   return json.Result;
@@ -240,7 +240,7 @@ class MediaNodeAPI {
   if (typeof MediaNode.NodeTypePath !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(MediaNode.NodeTypePath);
   });
-  return this.sageAPI.invoke("GetNodeTypePath", [MediaNode.MediaNodeID]).then((json)=>{
+  return this.sageAPI.invoke("GetNodeTypePath", ['medianode:'+MediaNode.MediaNodeID]).then((json)=>{
   if (!json || !json.Result) return null;
   MediaNode.NodeTypePath=json.Result;
   return json.Result;
@@ -267,7 +267,7 @@ class MediaNodeAPI {
 
     // IsNodeFilterMatching
    IsNodeFilterMatching(MediaNode, FilterIndex) {
-  return this.sageAPI.invoke("IsNodeFilterMatching", [MediaNode.MediaNodeID,FilterIndex]).then((json)=>{
+  return this.sageAPI.invoke("IsNodeFilterMatching", ['medianode:'+MediaNode.MediaNodeID,FilterIndex]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -279,7 +279,7 @@ class MediaNodeAPI {
   if (typeof MediaNode.IsNodeFolder !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(MediaNode.IsNodeFolder);
   });
-  return this.sageAPI.invoke("IsNodeFolder", [MediaNode.MediaNodeID]).then((json)=>{
+  return this.sageAPI.invoke("IsNodeFolder", ['medianode:'+MediaNode.MediaNodeID]).then((json)=>{
   if (!json || !json.Result) return null;
   MediaNode.IsNodeFolder=json.Result;
   return json.Result;
@@ -291,7 +291,7 @@ class MediaNodeAPI {
   if (typeof MediaNode.IsNodeHierarchyRealized !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(MediaNode.IsNodeHierarchyRealized);
   });
-  return this.sageAPI.invoke("IsNodeHierarchyRealized", [MediaNode.MediaNodeID]).then((json)=>{
+  return this.sageAPI.invoke("IsNodeHierarchyRealized", ['medianode:'+MediaNode.MediaNodeID]).then((json)=>{
   if (!json || !json.Result) return null;
   MediaNode.IsNodeHierarchyRealized=json.Result;
   return json.Result;
@@ -303,7 +303,7 @@ class MediaNodeAPI {
   if (typeof MediaNode.IsNodePlayable !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(MediaNode.IsNodePlayable);
   });
-  return this.sageAPI.invoke("IsNodePlayable", [MediaNode.MediaNodeID]).then((json)=>{
+  return this.sageAPI.invoke("IsNodePlayable", ['medianode:'+MediaNode.MediaNodeID]).then((json)=>{
   if (!json || !json.Result) return null;
   MediaNode.IsNodePlayable=json.Result;
   return json.Result;
@@ -315,7 +315,7 @@ class MediaNodeAPI {
   if (typeof MediaNode.IsNodeSortAscending !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(MediaNode.IsNodeSortAscending);
   });
-  return this.sageAPI.invoke("IsNodeSortAscending", [MediaNode.MediaNodeID]).then((json)=>{
+  return this.sageAPI.invoke("IsNodeSortAscending", ['medianode:'+MediaNode.MediaNodeID]).then((json)=>{
   if (!json || !json.Result) return null;
   MediaNode.IsNodeSortAscending=json.Result;
   return json.Result;
@@ -327,7 +327,7 @@ class MediaNodeAPI {
   if (typeof MediaNode.IsNodeVirtual !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(MediaNode.IsNodeVirtual);
   });
-  return this.sageAPI.invoke("IsNodeVirtual", [MediaNode.MediaNodeID]).then((json)=>{
+  return this.sageAPI.invoke("IsNodeVirtual", ['medianode:'+MediaNode.MediaNodeID]).then((json)=>{
   if (!json || !json.Result) return null;
   MediaNode.IsNodeVirtual=json.Result;
   return json.Result;
@@ -336,7 +336,7 @@ class MediaNodeAPI {
 
     // RefreshNode
    RefreshNode(MediaNode) {
-  return this.sageAPI.invoke("RefreshNode", [MediaNode.MediaNodeID]).then((json)=>{
+  return this.sageAPI.invoke("RefreshNode", ['medianode:'+MediaNode.MediaNodeID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -345,7 +345,7 @@ class MediaNodeAPI {
 
     // SetAllChildrenChecked
    SetAllChildrenChecked(MediaNode, State) {
-  return this.sageAPI.invoke("SetAllChildrenChecked", [MediaNode.MediaNodeID,State]).then((json)=>{
+  return this.sageAPI.invoke("SetAllChildrenChecked", ['medianode:'+MediaNode.MediaNodeID,State]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -354,7 +354,7 @@ class MediaNodeAPI {
 
     // SetNodeChecked
    SetNodeChecked(MediaNode, State) {
-  return this.sageAPI.invoke("SetNodeChecked", [MediaNode.MediaNodeID,State]).then((json)=>{
+  return this.sageAPI.invoke("SetNodeChecked", ['medianode:'+MediaNode.MediaNodeID,State]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -363,7 +363,7 @@ class MediaNodeAPI {
 
     // SetNodeFilter
    SetNodeFilter(MediaNode, Technique, MatchPasses) {
-  return this.sageAPI.invoke("SetNodeFilter", [MediaNode.MediaNodeID,Technique,MatchPasses]).then((json)=>{
+  return this.sageAPI.invoke("SetNodeFilter", ['medianode:'+MediaNode.MediaNodeID,Technique,MatchPasses]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -372,7 +372,7 @@ class MediaNodeAPI {
 
     // SetNodeSort
    SetNodeSort(MediaNode, Technique, Ascending) {
-  return this.sageAPI.invoke("SetNodeSort", [MediaNode.MediaNodeID,Technique,Ascending]).then((json)=>{
+  return this.sageAPI.invoke("SetNodeSort", ['medianode:'+MediaNode.MediaNodeID,Technique,Ascending]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -380,6 +380,7 @@ class MediaNodeAPI {
    }
 }
 
+// Field Constants for MediaNode
 MediaNodeAPI.AllNodeDescendants="AllNodeDescendants";
 MediaNodeAPI.NodeDataObject="NodeDataObject";
 MediaNodeAPI.NodeDataType="NodeDataType";

@@ -9,7 +9,7 @@ class PersonAPI {
   if (typeof Person.PersonBirthplace !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Person.PersonBirthplace);
   });
-  return this.sageAPI.invoke("GetPersonBirthplace", [Person.PersonID]).then((json)=>{
+  return this.sageAPI.invoke("GetPersonBirthplace", ['person:'+Person.PersonID]).then((json)=>{
   if (!json || !json.Result) return null;
   Person.PersonBirthplace=json.Result;
   return json.Result;
@@ -21,7 +21,7 @@ class PersonAPI {
   if (typeof Person.PersonDateOfBirth !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Person.PersonDateOfBirth);
   });
-  return this.sageAPI.invoke("GetPersonDateOfBirth", [Person.PersonID]).then((json)=>{
+  return this.sageAPI.invoke("GetPersonDateOfBirth", ['person:'+Person.PersonID]).then((json)=>{
   if (!json || !json.Result) return null;
   Person.PersonDateOfBirth=json.Result;
   return json.Result;
@@ -33,7 +33,7 @@ class PersonAPI {
   if (typeof Person.PersonDateOfDeath !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Person.PersonDateOfDeath);
   });
-  return this.sageAPI.invoke("GetPersonDateOfDeath", [Person.PersonID]).then((json)=>{
+  return this.sageAPI.invoke("GetPersonDateOfDeath", ['person:'+Person.PersonID]).then((json)=>{
   if (!json || !json.Result) return null;
   Person.PersonDateOfDeath=json.Result;
   return json.Result;
@@ -54,7 +54,7 @@ class PersonAPI {
   if (typeof Person.PersonID !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Person.PersonID);
   });
-  return this.sageAPI.invoke("GetPersonID", [Person.PersonID]).then((json)=>{
+  return this.sageAPI.invoke("GetPersonID", ['person:'+Person.PersonID]).then((json)=>{
   if (!json || !json.Result) return null;
   Person.PersonID=json.Result;
   return json.Result;
@@ -63,7 +63,7 @@ class PersonAPI {
 
     // GetPersonImage
    GetPersonImage(Person, Thumb) {
-  return this.sageAPI.invoke("GetPersonImage", [Person.PersonID,Thumb]).then((json)=>{
+  return this.sageAPI.invoke("GetPersonImage", ['person:'+Person.PersonID,Thumb]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -72,7 +72,7 @@ class PersonAPI {
 
     // GetPersonImageURL
    GetPersonImageURL(Person, Thumb) {
-  return this.sageAPI.invoke("GetPersonImageURL", [Person.PersonID,Thumb]).then((json)=>{
+  return this.sageAPI.invoke("GetPersonImageURL", ['person:'+Person.PersonID,Thumb]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -84,7 +84,7 @@ class PersonAPI {
   if (typeof Person.HasPersonImage !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(Person.HasPersonImage);
   });
-  return this.sageAPI.invoke("HasPersonImage", [Person.PersonID]).then((json)=>{
+  return this.sageAPI.invoke("HasPersonImage", ['person:'+Person.PersonID]).then((json)=>{
   if (!json || !json.Result) return null;
   Person.HasPersonImage=json.Result;
   return json.Result;
@@ -101,6 +101,7 @@ class PersonAPI {
    }
 }
 
+// Field Constants for Person
 PersonAPI.PersonBirthplace="PersonBirthplace";
 PersonAPI.PersonDateOfBirth="PersonDateOfBirth";
 PersonAPI.PersonDateOfDeath="PersonDateOfDeath";

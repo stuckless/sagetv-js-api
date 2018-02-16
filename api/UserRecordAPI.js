@@ -24,7 +24,7 @@ class UserRecordAPI {
 
     // DeleteUserRecord
    DeleteUserRecord(UserRecord) {
-  return this.sageAPI.invoke("DeleteUserRecord", [UserRecord.UserRecordID]).then((json)=>{
+  return this.sageAPI.invoke("DeleteUserRecord", ['userrecord:'+UserRecord.UserRecordID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -60,7 +60,7 @@ class UserRecordAPI {
 
     // GetUserRecordData
    GetUserRecordData(UserRecord, Name) {
-  return this.sageAPI.invoke("GetUserRecordData", [UserRecord.UserRecordID,Name]).then((json)=>{
+  return this.sageAPI.invoke("GetUserRecordData", ['userrecord:'+UserRecord.UserRecordID,Name]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -72,7 +72,7 @@ class UserRecordAPI {
   if (typeof UserRecord.UserRecordNames !== 'undefined') return new Promise(function(resolve, reject) {
      resolve(UserRecord.UserRecordNames);
   });
-  return this.sageAPI.invoke("GetUserRecordNames", [UserRecord.UserRecordID]).then((json)=>{
+  return this.sageAPI.invoke("GetUserRecordNames", ['userrecord:'+UserRecord.UserRecordID]).then((json)=>{
   if (!json || !json.Result) return null;
   UserRecord.UserRecordNames=json.Result;
   return json.Result;
@@ -81,7 +81,7 @@ class UserRecordAPI {
 
     // IsUserRecordObject
    IsUserRecordObject(UserRecord) {
-  return this.sageAPI.invoke("IsUserRecordObject", [UserRecord.UserRecordID]).then((json)=>{
+  return this.sageAPI.invoke("IsUserRecordObject", ['userrecord:'+UserRecord.UserRecordID]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -90,7 +90,7 @@ class UserRecordAPI {
 
     // SetUserRecordData
    SetUserRecordData(UserRecord, Name, Value) {
-  return this.sageAPI.invoke("SetUserRecordData", [UserRecord.UserRecordID,Name,Value]).then((json)=>{
+  return this.sageAPI.invoke("SetUserRecordData", ['userrecord:'+UserRecord.UserRecordID,Name,Value]).then((json)=>{
    if (json && json.Result) return json.Result;
    return json;
 });
@@ -98,5 +98,6 @@ class UserRecordAPI {
    }
 }
 
+// Field Constants for UserRecord
 UserRecordAPI.UserRecordNames="UserRecordNames";
     export default UserRecordAPI;
