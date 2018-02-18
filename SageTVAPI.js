@@ -1,8 +1,11 @@
 class SageTVAPI {
-    constructor(options) {
+    constructor(options, fetchOptions) {
         this.baseUrl = options.baseUrl;
-        this.apiPath = options.apiPath || '/sagex/api'
+        this.apiPath = options.apiPath || '/sagex/api';
+        this.debug = options.debug || false;
         this.options = options;
+        this.extraArgs = options.extraArgs || {}
+        this.fetchOptions = fetchOptions || {}
     }
 
     /**
@@ -21,20 +24,25 @@ class SageTVAPI {
         }
         let encoder = this.options.encoder || 'json';
         url += ("&encoder="+encoder);
-        console.log("Calling: " + cmd, args, url);
+        Object.keys(this.extraArgs).forEach((k)=>{
+            url += ("&"+k+"=" + encodeURIComponent(this.extraArgs[k]));
+        });
+        if (this.debug) console.log("Calling: " + cmd, args, url);
         let headers = new Headers();
         if (this.options.username) {
             headers.append('Authorization', 'Basic ' + btoa(this.options.username + ":" + this.options.password));
         }
         let reqOpts = {
-            method: 'GET',
+            method: this.fetchOptions.method || 'GET',
             headers: headers,
             mode: 'cors',
-            cache: 'none',
-            credentials: 'include'
+            cache: this.fetchOptions.cache || 'no-store'
         };
+        if (this.options.username) {
+            reqOpts.credentials = 'include';
+        }
         return fetch(url, reqOpts).then(function(result) {
-            console.log("RESPONSE:", result);
+            if (this.debug) console.log("RESPONSE:", result);
             if (result.ok)
                 return result.json();
             else
