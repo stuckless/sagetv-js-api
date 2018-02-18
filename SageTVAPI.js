@@ -41,8 +41,9 @@ class SageTVAPI {
         if (this.options.username) {
             reqOpts.credentials = 'include';
         }
+        var me=this;
         return fetch(url, reqOpts).then(function(result) {
-            if (this.debug) console.log("RESPONSE:", result);
+            if (me.debug) console.log("RESPONSE:", result);
             if (result.ok)
                 return result.json();
             else
